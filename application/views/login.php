@@ -20,7 +20,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="<?php echo site_url('welcome/index')?>">Home</a>
         </li>
         <li class="nav-item">
         <a class="nav-link" href="<?php echo site_url('welcome/Login')?>">Login</a>
@@ -39,6 +39,7 @@
                      Log In now!
                 </div>
                 <div class="card-body ">
+                    <?php echo validation_errors();?>
                 <form method="post" action="<?php echo site_url('welcome/loginnow')?>">
                     <div class="form-group">
                         <label for="exampleInputEmail1">username:</label>

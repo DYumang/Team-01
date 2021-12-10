@@ -12,8 +12,8 @@
                 <input type="text" class="form-control" name="firstName" value="<?php echo $row->firstName; ?>" aria-describedby="emailHelp" placeholder="Enter first name">
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">username</label>
-                <input type="text" class="form-control" name="username" value="<?php echo $row->usertName; ?>" aria-describedby="emailHelp" placeholder="Enter first name">
+                <label for="exampleInputEmail1">Username</label>
+                <input type="text" class="form-control" name="userName" value="<?php echo $row->firstName; ?>" aria-describedby="emailHelp" placeholder="Enter first name">
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Birthdate</label>
