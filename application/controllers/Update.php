@@ -17,14 +17,15 @@ class Update extends CI_Controller
 			$old_pass=$this->input->post('old_pass');
 			$new_pass=$this->input->post('new_pass');
 			$confirm_pass=$this->input->post('confirm_pass');
-			$session_id=$this->session->userdata('id');
-			$que=$this->db->query("select * from user_login where id='$session_id'"); // move this to  user model
+			$session =$this->session->userdata('UserLoginSession');
+			$session_id = $session['id'];
+			$que=$this->db->query("select * from users where id='$session_id'"); // move this to  user model
 			$row=$que->row(); // move this to user model
 			// currentPassword =  this->UserModel->getPassword(sessionId);
 			
 			// add this condition to if currentPassword == oldPassword
-			if((!strcmp($old_pass, $new_pass))&& (!strcmp($new_pass, $confirm_pass))){
-				$this->User_model->change_pass($session_id,$new_pass);
+			if($old_pass != $new_pass && $new_pass == $confirm_pass){
+				$this->User_model->change_pass($session_id,sha1($new_pass));
 				echo "Password changed successfully !";
 			}
 			else{ 
