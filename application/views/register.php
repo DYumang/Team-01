@@ -20,8 +20,8 @@
 		    <a class="navbar-brand" href="#">QUIZHUB</a>
 		    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
 		      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-			  <li class="nav-item">
-			  	<a class="nav-link" href="<?=base_url('register')?>">Register</a>
+		        <li class="nav-item">
+		          <a class="nav-link" href="<?=base_url('register')?>">Register</a>
 		        </li>
 		        <li class="nav-item">
 		          <a class="nav-link" href="<?=base_url('login')?>">Login</a>
@@ -41,11 +41,15 @@
 				<div class="col-md-4">
 					<div class="card" style="margin-top: 30px">
 					  <div class="card-header text-center">
-					    Login Now
+					    Register Now
 					  </div>
 					  <div class="card-body">
-					   <form method="post" autocomplete="off" action="<?=base_url('login/loginnow')?>">
-					 
+					   <form method="post" autocomplete="off" action="<?=base_url('register/registerNow')?>">
+					   	<div class="mb-3">
+						    <label for="exampleInputEmail1" class="form-label">Name</label>
+						    <input type="text" placeholder="User Name" name="username" class="form-control" id="name" aria-describedby="name">
+						    
+						  </div>
 						  <div class="mb-3">
 						    <label for="exampleInputEmail1" class="form-label">Email address</label>
 						    <input type="email"  placeholder="Email Address" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -54,14 +58,18 @@
 						    <label for="exampleInputPassword1" class="form-label">Password</label>
 						    <input type="password" name="password"  placeholder="User Password"  class="form-control" id="exampleInputPassword1">
 						  </div>
-						 <div class="text-center">
-						  <button type="submit" class="btn btn-primary">Login Now</button>
-						</div>
 
-					<?php
-						if($this->session->flashdata('error')) {	?>
-						 <p class="text-danger text-center" style="margin-top: 10px;"> <?=$this->session->flashdata('error')?></p>
-						<?php } ?>
+						  <div class="text-center"> 
+							  <?php
+							 	if(isset($errorMessage)){
+									echo $errorMessage;
+								}
+								?>
+						  </div>
+
+						 <div class="text-center">
+						  <button type="submit" class="btn btn-primary">Register Now</button>
+						</div>
 						
 						</form>
 					  </div>

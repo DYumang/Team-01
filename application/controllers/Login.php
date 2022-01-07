@@ -1,10 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Login extends CI_Controller {
 
 
-	function login()
+	function index()
 	{
 		$this->load->view('login');
 	}
@@ -36,19 +36,19 @@ class Welcome extends CI_Controller {
 
 					$this->session->set_userdata('UserLoginSession',$session_data);
 
-					redirect(base_url('dashboard'));
+					redirect(base_url('/dashboard'));
 				}
 				else
 				{
 					$this->session->set_flashdata('error','Email or Password is Wrong');
-					redirect(base_url('login'));
+					redirect(base_url('/login'));
 				}
 
 			}
 			else
 			{
 				$this->session->set_flashdata('error','Fill all the required fields');
-				redirect(base_url('login'));
+				redirect(base_url('/login'));
 			}
 		}
 	}
@@ -56,6 +56,6 @@ class Welcome extends CI_Controller {
 	function logout()
 	{
 		session_destroy();
-		redirect(base_url('login'));
+		redirect(base_url('/login'));
 	}
 }

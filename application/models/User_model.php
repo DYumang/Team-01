@@ -1,37 +1,34 @@
-    <?php
+<?php 
 
-    class User_model extends CI_Model{
-        public function __construct()
-        {
-            $this->load->database();
-        }
+class User_model extends CI_Model {
 
-        function insertuser($data)
-        {
-            $this->db->insert('tbl_name',$data);
-        }
+	function insertuser($data)
+	{
+		$this->db->insert('users',$data);
+	}
 
-        
-        function loginmodel($username,$password)
-        {
-            $password = $password;
-            
-         // $query=$this->db->query("SELECT * FROM tbl_name WHERE password='$password' AND username='$username'");
-         $this->db->where('username',$username);
-         $this->db->where('password',$password);
-         $query = $this->db->get("tbl_name");
-         
-         if($query->num_rows()==1)
-         {
-            
-            // die();
-            return true;
-         }
-         else
-         {
-             return false;
-         }
-        }
+	function checkPassword($password,$email)
+	{
+		$query = $this->db->query("SELECT * FROM users WHERE password='$password' AND email='$email' AND status='1'");
+		if($query->num_rows()==1)
+		{
+			return $query->row();
+		}
+		else
+		{
+			return false;
+		}
 
+	}
 
- }
+	function fetch_pass($session_id)
+	{
+		$fetch_pass=$this->db->query("select * from user_login where id='$session_id'");
+		$res=$fetch_pass->result();
+	}
+
+	function change_pass($session_id,$new_pass)
+	{
+		$update_pass=$this->db->query("UPDATE user_login set pass='$new_pass'  where id='$session_id'");
+	}
+}
