@@ -17,13 +17,12 @@
                 <li><a href="#">Quiz List</a></li>
                 <li><a href="#">Study Tips</a></li>
                 <li><a href="#">Profile</a></li>
-                <li><a href="#">LOGOUT</a></li>
+                <li><a href="<?php echo base_url('welcome/LogoutController');?>">LOGOUT</a></li>
             </ul>
         </nav>
         <div class="detel">
-            <h1>hello neighbor<span> RAIDEN!</span></h1>
-            <p>No matter how busy you may think you are, you must find time for reading,  <br> or surrender yourself to self-chosen ignorance
-            <br> //final edit message will be our team words about studying// </p>
+            <h1>hello neighbor<span> QUIZZERS!</span></h1>
+            <p>No matter how busy you may think you are, you must find time for reading, <br> or surrender yourself to self-chosen ignorance. </p>
             <a href="#">Create Quiz</a>
         </div>
         <div class="images">

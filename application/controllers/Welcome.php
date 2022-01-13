@@ -8,13 +8,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->load->model('Crud_model');
 		}
 
-		public function index()
+		function index()
 		{
 			$this->load->view('home');
 		}
 
 
-		public function RegisterNow()
+		function RegisterNow()
 		{
 			$this->Crud_model->createData();
 
@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				
 		}
 
-		public function Login()
+		function Login()
 		{
 			$this->load->view('login');	
 		}
@@ -31,10 +31,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->load->view('landing');	
 		}
 
+	function AboutFunction (){
+		$this->load->view('aboutview');
+	}
 
 	function Dashboard()
 	{
 		$this->load->view('dashboard');
+	}
+
+	function LogoutController(){
+		$this->session->unset_userdata(array('username','password'));
+        $this->session->sess_destroy();
+        redirect (base_url() . 'Welcome/Login');
 	}
 
 	public function loginnow()
@@ -67,14 +76,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 
 		 }
-
-		// else
-		// {
-		// 	echo "login";
-		// 	die();
-		// 	$this->load->view('login');
-		// }
-
 	}
 
 

@@ -14,7 +14,7 @@
             <img src="<?php echo base_url();?>assets/images/logo.png" class="logo">
             <ul>
                 <li><a href="<?php echo site_url('welcome/Login')?>">Log in</a></li>
-                <li><a href="#">About Us</a></li>
+                <li><a href="<?php echo site_url('welcome/AboutFunction')?>">About Us</a></li>
             </ul>
         </nav>
         <div class="detel">
@@ -26,7 +26,6 @@
             <img src="<?php echo base_url();?>assets/images/shape3.png" class="shape3">
              <img src="<?php echo base_url();?>assets/images/logo.png" class="girl">
         </div>
-
     </div>
 </body>
 </html>

@@ -10,7 +10,7 @@
     <title>signup</title>
   </head>
   <body>
-    <img src="<?php echo base_url();?>assets/images/logo.png" id="logosignup" width="100px" height="100px" >
+    <img src="<?php echo base_url();?>assets/images/logo.png" class="logosignup" width="100px" height="100px" >
     <div class="container">
       <div class="wrapper">
         <div class="title"><span>SignUp Form</span></div>
