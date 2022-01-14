@@ -3,33 +3,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	class Welcome extends CI_Controller {
 
-		public function __construct() {
-			parent:: __construct();
-			$this->load->model('Crud_model');
-		}
+	public function __construct() {
+		parent:: __construct();
+		$this->load->model('Crud_model');
+	}
 
-		function index()
-		{
-			$this->load->view('home');
-		}
+	function index()
+	{
+		$this->load->view('home');
+	}
 
 
-		function RegisterNow()
-		{
-			$this->Crud_model->createData();
+	function RegisterNow()
+	{
+		$this->Crud_model->createData();
 
-			$this->load->view('login');		
-				
-		}
+		$this->load->view('login');		
+			
+	}
 
-		function Login()
-		{
-			$this->load->view('login');	
-		}
+	function Login()
+	{
+		$this->load->view('login');	
+	}
 
-		public function Landing(){
-			$this->load->view('landing');	
-		}
+	public function Landing(){
+		$this->load->view('landing');	
+	}
 
 	function AboutFunction (){
 		$this->load->view('aboutview');
@@ -60,10 +60,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 		else{
 					
-	
-			if($this->user_model->loginmodel($username, $password)){
+			$status = $this->user_model->loginmodel($username, sha1($password));
+			if($status!=false){
 				$session_data = array(
-				'username' => $username
+				'username' => $username,
+				'id' => $status->id,
 				);
 
 				$this->session->set_userdata($session_data);

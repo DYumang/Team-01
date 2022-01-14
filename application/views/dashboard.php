@@ -16,7 +16,7 @@
                 <li><a href="#">Join Quiz</a></li>
                 <li><a href="#">Quiz List</a></li>
                 <li><a href="#">Study Tips</a></li>
-                <li><a href="#">Profile</a></li>
+                <li><a href="<?=base_url('update')?>">Profile</a></li>
                 <li><a href="<?php echo base_url('welcome/LogoutController');?>">LOGOUT</a></li>
             </ul>
         </nav>
