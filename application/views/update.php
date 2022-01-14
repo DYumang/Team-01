@@ -21,6 +21,7 @@
 		<label>Confirm Password :</label>
 		<input type="password" name="confirm_pass" id="password" placeholder="Confirm Password"/><br/><br />
 		<input type="submit" value="login" name="change_pass"/><br />
+		<a href="<?=base_url('welcome/LogoutController')?>">Logout</a>
 </form>
 </div>
 </div>

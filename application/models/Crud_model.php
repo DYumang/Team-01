@@ -12,7 +12,7 @@ class Crud_model extends CI_Model {
             'firstName' => $this->input->post('firstName'),
             'birthdate' => $this->input->post('birthdate'),
             'username' => $this->input->post('username'),
-            'password' => $this->input->post('password')
+            'password' => sha1($this->input->post('password'))
         );
         $this->db->insert('tbl_name', $data);
     }

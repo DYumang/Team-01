@@ -1,61 +1,87 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+	class Welcome extends CI_Controller {
 
-
-	function login()
-	{
-		$this->load->view('login');
+	public function __construct() {
+		parent:: __construct();
+		$this->load->model('Crud_model');
 	}
 
-	function loginnow()
+	function index()
 	{
-		if($_SERVER['REQUEST_METHOD']=='POST')
-		{
-			$this->form_validation->set_rules('email','Email','required');
-			$this->form_validation->set_rules('password','Password','required');
+		$this->load->view('home');
+	}
 
-			if($this->form_validation->run()==TRUE)
-			{
-				$email = $this->input->post('email');
-				$password = $this->input->post('password');
-				$password = sha1($password);
 
-				$this->load->model('user_model');
-				$status = $this->user_model->checkPassword($password,$email);
-				if($status!=false)
-				{
-					$username = $status->username;
-					$email = $status->email;
+	function RegisterNow()
+	{
+		$this->Crud_model->createData();
 
-					$session_data = array(
-						'username'=>$username,
-						'email' => $email,
-					);
+		$this->load->view('login');		
+			
+	}
 
-					$this->session->set_userdata('UserLoginSession',$session_data);
+	function Login()
+	{
+		$this->load->view('login');	
+	}
 
-					redirect(base_url('dashboard'));
-				}
-				else
-				{
-					$this->session->set_flashdata('error','Email or Password is Wrong');
-					redirect(base_url('login'));
-				}
+	public function Landing(){
+		$this->load->view('landing');	
+	}
 
-			}
-			else
-			{
-				$this->session->set_flashdata('error','Fill all the required fields');
-				redirect(base_url('login'));
-			}
+	function AboutFunction (){
+		$this->load->view('aboutview');
+	}
+
+	function Dashboard()
+	{
+		$this->load->view('dashboard');
+	}
+
+	function LogoutController(){
+		$this->session->unset_userdata(array('username','password'));
+        $this->session->sess_destroy();
+        redirect (base_url() . 'Welcome/Login');
+	}
+
+	public function loginnow()
+	{
+
+		
+		$this->form_validation->set_rules('username','Username', 'required');
+		$this->form_validation->set_rules('password','Password', 'required');
+		$username = $this->input->post('username');
+			$password = $this->input->post('password');
+
+		if($this->form_validation->run()== FALSE){
+			redirect (base_url() . 'Welcome/Login');
 		}
+		else{
+					
+			$status = $this->user_model->loginmodel($username, sha1($password));
+			if($status!=false){
+				$session_data = array(
+				'username' => $username,
+				'id' => $status->id,
+				);
+
+				$this->session->set_userdata($session_data);
+				$this->load->view('dashboard');
+			}else{
+
+
+				$this->session->set_flashdata('error', 'Invalid username and Password');
+				redirect (base_url() . 'Welcome/Login');
+			}
+
+		 }
 	}
 
-	function logout()
-	{
-		session_destroy();
-		redirect(base_url('login'));
-	}
+
 }
+
+
+
+
