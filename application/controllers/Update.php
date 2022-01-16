@@ -11,8 +11,13 @@ class Update extends CI_Controller
 	
 	public function index()
 	{
-		if($this->input->post('change_pass'))
-		{
+		
+
+		if($this->input->post('profile_update')){
+			$lastName=$this->input->post('lastName');
+			$firstName=$this->input->post('firstName');
+			$username=$this->input->post('username');
+			$birthdate=$this->input->post('birthdate');
 			$old_pass=$this->input->post('old_pass');
 			$new_pass=$this->input->post('new_pass');
 			$confirm_pass=$this->input->post('confirm_pass');
@@ -20,14 +25,17 @@ class Update extends CI_Controller
 			$session_id = $session['id'];
 			$user_data=$this->User_model->getData($session_id);
 			// add this condition to if currentPassword == oldPassword
-			if($user_data->password == sha1($old_pass) && $old_pass != $new_pass && $new_pass == $confirm_pass){
-				$this->User_model->change_pass($session_id,sha1($new_pass));
-				echo "Password changed successfully !";
+			if($user_data->password == $old_pass && $old_pass != $new_pass && $new_pass == $confirm_pass){
+				$this->User_model->profile_update($session_id,$new_pass,$lastName,$firstName,$username,$birthdate);
+								
 			}
 			else{ 
 				echo "Invalid";
 			}
+	
 		}
-		$this->load->view('update');	
+
+		$this->load->view('userProfileUpdate');	
+		redirect('welcome/Home');
 	}
 }
