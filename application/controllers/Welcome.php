@@ -8,13 +8,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		$this->load->model('Crud_model');
 	}
 
-	function index()
+	public function index()
 	{
 		$this->load->view('home');
 	}
 
+        public function Profile()
+		{
+			$this->load->view('userProfile');
+		}
 
-	function RegisterNow()
+		public function ProfileUpdate()
+		{
+			$this->load->view('userProfileUpdate');
+		}
+
+		public function Study()
+		{
+			$this->load->view('StudyTips');
+		}
+		
+		public function Uploads()
+		{
+			$this->load->view('uploads');
+		}
+
+		public function Home()
+		{
+			$this->load->view('dashboard');
+		}
+
+		function UpdateData()
+		{
+			$this->Crud_model->updateData();
+
+			$this->load->view('userProfile');		
+				
+		}
+
+
+		public function RegisterNow()
 	{
 		$this->Crud_model->createData();
 
@@ -22,7 +55,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			
 	}
 
-	function Login()
+
+	public function Login()
 	{
 		$this->load->view('login');	
 	}
@@ -31,24 +65,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		$this->load->view('landing');	
 	}
 
-	function AboutFunction (){
+	public function AboutFunction (){
 		$this->load->view('aboutview');
 	}
 
-	function Dashboard()
+	public function Dashboard()
 	{
 		$this->load->view('dashboard');
 	}
 
-	function LogoutController(){
+	public function LogoutController(){
 		$this->session->unset_userdata(array('username','password'));
         $this->session->sess_destroy();
         redirect (base_url() . 'Welcome/Login');
 	}
 
+
+
 	public function loginnow()
 	{
-
 		
 		$this->form_validation->set_rules('username','Username', 'required');
 		$this->form_validation->set_rules('password','Password', 'required');
@@ -60,7 +95,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 		else{
 					
-			$status = $this->user_model->loginmodel($username, sha1($password));
+			// $status = $this->user_model->loginmodel($username, sha1($password));
+			$status = $this->user_model->loginmodel($username, $password);
 			if($status!=false){
 				$session_data = array(
 				'username' => $username,

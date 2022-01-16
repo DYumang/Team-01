@@ -13,15 +13,16 @@
         <nav>
             <img src="<?php echo base_url();?>assets/images/logo.png" class="logo">
             <ul>
+            <li><a href = "<?php echo site_url('welcome/Home'); ?>">Home</a></li>
                 <li><a href="#">Join Quiz</a></li>
                 <li><a href="#">Quiz List</a></li>
-                <li><a href="#">Study Tips</a></li>
-                <li><a href="<?=base_url('update')?>">Profile</a></li>
+                <li><a href = "<?php echo site_url('welcome/Study'); ?>">Study Tips</a></li>
+                <li><a href = "<?php echo site_url('welcome/Profile'); ?>">Profile</a></li>
                 <li><a href="<?php echo base_url('welcome/LogoutController');?>">LOGOUT</a></li>
             </ul>
         </nav>
         <div class="detel">
-            <h1>hello neighbor<span> QUIZZERS!</span></h1>
+        <h1>Hello neighbor<span> <?php echo ucfirst($_SESSION['username']); ?>!</span></h1>
             <p>No matter how busy you may think you are, you must find time for reading, <br> or surrender yourself to self-chosen ignorance. </p>
             <a href="#">Create Quiz</a>
         </div>
