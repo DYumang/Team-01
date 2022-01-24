@@ -13,8 +13,8 @@
         <nav>
             <img src="<?php echo base_url();?>assets/images/logo.png" class="logo">
             <ul>
-                <li><a href="<?php echo site_url('welcome/Login')?>">Log in</a></li>
-                <li><a href="<?php echo site_url('welcome/AboutFunction')?>">About Us</a></li>
+                <li><a href="<?php echo site_url('Welcome/Login')?>">Log in</a></li>
+                <li><a href="<?php echo site_url('Welcome/AboutFunction')?>">About Us</a></li>
             </ul>
         </nav>
         <div class="detel">

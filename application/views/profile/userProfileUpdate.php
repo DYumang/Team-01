@@ -14,12 +14,12 @@
         <nav>
             <img src="<?php echo base_url();?>assets/images/logo.png" class="logo">
             <ul>
-            <li><a href = "<?php echo site_url('welcome/Home'); ?>">Home</a></li>
+            <li><a href = "<?php echo site_url('Welcome/Home'); ?>">Home</a></li>
                 <li><a href="#">Join Quiz</a></li>
                 <li><a href="#">Quiz List</a></li>
-                <li><a href = "<?php echo site_url('welcome/Study'); ?>">Study Tips</a></li>
-                <li><a href = "<?php echo site_url('welcome/Profile'); ?>">Profile</a></li>
-                <li><a href="<?php echo base_url('welcome/LogoutController');?>">LOGOUT</a></li>
+                <li><a href = "<?php echo site_url('Welcome/Study'); ?>">Study Tips</a></li>
+                <li><a href = "<?php echo site_url('Welcome/Profile'); ?>">Profile</a></li>
+                <li><a href="<?php echo base_url('Welcome/LogoutController');?>">LOGOUT</a></li>
             </ul>
         </nav>
 
