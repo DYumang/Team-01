@@ -14,8 +14,8 @@
             <nav>
                 <img src="<?php echo base_url();?>assets/images/logo.png" class="logo">
                 <ul>
-                <li><a href = "<?php echo site_url('Welcome/Home'); ?>">Home</a></li>
-                    <li><a href="#">Join Quiz</a></li>
+                    <li><a href = "<?php echo site_url('Welcome/Home'); ?>">Home</a></li>
+                    <li><a href = "<?php echo site_url('Welcome/Join'); ?>">Join Quiz</a></li>
                     <li><a href="#">Quiz List</a></li>
                     <li><a href = "<?php echo site_url('Welcome/Study'); ?>">Study Tips</a></li>
                     <li><a href = "<?php echo site_url('Welcome/Profile'); ?>">Profile</a></li>

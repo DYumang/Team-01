@@ -139,7 +139,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					'exam_id' => $exam_id,
 					);
 				$this->Quiz_model->add($data);
-				redirect(base_url() . "Welcome/addquestions");
+				redirect(base_url("Welcome/addquestions/".$exam_id));//nagpasa ng parameter
             }
 			else{
 				//false
@@ -148,16 +148,68 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	}
 
-	public function addQuestions(){
-		   $this->load->library('form_validation');
-		   $this->form_validation->set_rules('exam_title','Quiz Title','trim|required');
-		   $this->form_validation->set_rules('total_question','Total Question','trim|required');
-		   $this->form_validation->set_rules('marks_if_right','Marks if correct','trim|required');
-		   $this->form_validation->set_rules('marks_if_wrong','Marks if wrong','trim|required');
-		   $this->form_validation->set_rules('exam_code','Exam_code','trim|required');
-           
+	public function addQuestions($exam_id){
 
-           $this->load->view('examview/quizform');
+		$post = $this->input->post();
+		if(isset($post) && $post != null) {
+		echo "<pre>";
+		print_r($post);
+		exit;
+		}
+		//    $this->load->library('form_validation');
+		//    $this->form_validation->set_rules('qns','Question','trim|required');
+		//    $this->form_validation->set_rules('options','1','option','trim|required');
+		//    $this->form_validation->set_rules('options','2','option','trim|required');
+		//    $this->form_validation->set_rules('options','3','option','trim|required');
+		//    $this->form_validation->set_rules('options','4','option','trim|required');
+		//    $this->form_validation->set_rules('answer_id','answer','trim|required');
+        //    if($this->form_validation->run()){
+
+			// get = question_no
+			// get = examid
+			// get =default choice
+			//true
+		//    $this->load->model("Quiz_model");
+		//    $question_id = bin2hex(openssl_random_pseudo_bytes(10));
+	    //  $oaid = bin2hex(openssl_random_pseudo_bytes(10));
+	    //	$obid = bin2hex(openssl_random_pseudo_bytes(10));
+	    //	$ocid = bin2hex(openssl_random_pseudo_bytes(10));
+		//  $odid = bin2hex(openssl_random_pseudo_bytes(10));
+		    
+		//    $ques=array(
+		// 	   'qns' => $this->input->post('qns'),
+		// 	   'options' => $this->input->post($depende sa i , '1 '),
+		// 	   'options' => $this->input->post($depende sa i , '2 '),
+		//     'options' => $this->input->post($depende sa i , '3 '),
+		//     'options' => $this->input->post($depende sa i , '4 '),
+		//       'ans'   => $this->input->post('ans' tapos depende sa $i)
+		// 	   'qa' => qid -> $a -> $oaid, feel ko sa model to 
+		//     'qb' => qid -> $b -> $obid,
+		//     'qc' => qid -> $c -> $ocid,
+		//     'qd' => qid -> $d -> $odid, 
+		// 	   );
+
+		    //    switch($e){ model din ata
+			// 	   case= 'a': $answer_id=$oaid;break;
+			// 	   case= 'b': $answer_id=$obid;break;
+			// 	   case= 'c': $answer_id=$ocid;break;
+			// 	   case= 'd': $answer_id=$odid;break;
+			//     maglalagay muna ako default $answer_id=$oaid;
+			// c
+			//    }
+      
+		//    $this->Quiz_model->add($data);
+		//    redirect(base_url() . "Welcome/addquestions");
+	   
+	   $total_question = $this->Quiz_model->gettotalquestion($exam_id);
+
+	  
+	   $data=array(
+		'exam_id' => $exam_id,
+		'total_question'=> $total_question[0]['total_question'],
+		);
+		
+           $this->load->view('examview/quizform',$data);
 	}
 
     public function Join(){

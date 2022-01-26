@@ -21,7 +21,7 @@
             </ul>
         </nav>
         <div class="detel">
-        <h1>Hello neighbor<span> <?php echo ucfirst($_SESSION['username']); ?>!</span></h1>
+            <h1>Hello Neighbor <span><?php echo ucfirst($_SESSION['username']); ?>!</span></h1></span></h1>
             <p>No matter how busy you may think you are, you must find time for reading, <br> or surrender yourself to self-chosen ignorance. </p>
             <a href="<?php echo site_url('Welcome/addDetails');?>">Create Quiz</a>
         </div>
