@@ -1,18 +1,22 @@
-    <?php
+<?php
 
 class User_model extends CI_Model{
+
     public function __construct()
     {
+        parent::__construct();
         $this->load->database();
+        $this->load->library('session');
+        $this->load->model('User_model');
     }
 
-    function insertuser($data)
+    public function insertuser($data)
     {
         $this->db->insert('tbl_name',$data);
     }
 
     
-    function loginmodel($username,$password)
+    public function loginmodel($username,$password)
     {
         $password = $password;
         
@@ -43,7 +47,7 @@ class User_model extends CI_Model{
 	}
 
 
-    function profile_update($session_id,$new_pass,$lastName,$firstName,$username,$birthdate)
+   public function profile_update($session_id,$new_pass,$lastName,$firstName,$username,$birthdate)
     {
         $update_pass=$this->db->query("UPDATE tbl_name set password='$new_pass'  where id='$session_id'");
         $que_pass=$this->db->query("select * from tbl_name where id='$session_id'"); 
@@ -66,5 +70,19 @@ class User_model extends CI_Model{
 		$row_bday=$que_bday->row();         
     }    
 
+    public function profile($id){
+        // $profile = array();
+        // $session =$this->session->userdata();
+        // $id = $session['id'];
+        // $queryy = $this->db->query("SELECT * FROM tbl_name WHERE id='$id'");
+        // $profile['username'] = $queryy->row()-> {'username'};  
 
+        // if($queryy->num_rows()!=0){
+        //     $profile = $queryy->row_array();
+        // }
+        // return $profile;
+        
+        $query=$this->db->get_where('tbl_name',array('id'=>$id));
+        return $query->row(); 
+    }
  }

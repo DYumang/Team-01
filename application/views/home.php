@@ -14,7 +14,7 @@
     <div class="container">
       <div class="wrapper">
         <div class="title"><span>SignUp Form</span></div>
-        <form method="post" action="<?php echo site_url('welcome/RegisterNow')?>">
+        <form method="post" action="<?php echo site_url('Welcome/RegisterNow')?>">
           <div class="row">
             <i class="fas fa-user"></i>
             <input type="text" placeholder="Lastname" name="lastName" required>

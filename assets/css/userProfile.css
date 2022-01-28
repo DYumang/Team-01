@@ -120,7 +120,7 @@ input[type="radio"]:checked + .content {
   margin-top: 7%;
   font-size: 50px;
   font-size: 50px;
-  color: rgb(146, 148, 46);
+  color: #f2dc13;
   margin-bottom: 20px;
 }
 .trial h2{

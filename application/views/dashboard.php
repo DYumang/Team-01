@@ -13,18 +13,24 @@
         <nav>
             <img src="<?php echo base_url();?>assets/images/logo.png" class="logo">
             <ul>
-            <li><a href = "<?php echo site_url('welcome/Home'); ?>">Home</a></li>
-                <li><a href="#">Join Quiz</a></li>
+                <li><a href="<?php echo site_url('welcome/Home'); ?>">Home</a></li>
+                <li><a href="<?php echo site_url('Welcome/Join'); ?>">Join Quiz</a></li>
                 <li><a href="#">Quiz List</a></li>
-                <li><a href = "<?php echo site_url('welcome/Study'); ?>">Study Tips</a></li>
-                <li><a href = "<?php echo site_url('welcome/Profile'); ?>">Profile</a></li>
-                <li><a href="<?php echo base_url('welcome/LogoutController');?>">LOGOUT</a></li>
+                <li><a href="<?php echo site_url('Welcome/Study'); ?>">Study Tips</a></li>
+                <li><a href="<?php echo site_url('Welcome/Profile');?>">Profile</a></li>
+                <li><a href="<?php echo base_url('Welcome/LogoutController');?>">LOGOUT</a></li>
             </ul>
         </nav>
         <div class="detel">
-        <h1>Hello neighbor<span> <?php echo ucfirst($_SESSION['username']); ?>!</span></h1>
+            <h1>Hello neighbor
+                <span > 
+                    <?php  
+                        echo ucfirst($profile->username);          
+                    ?>!
+                </span>
+            </h1>
             <p>No matter how busy you may think you are, you must find time for reading, <br> or surrender yourself to self-chosen ignorance. </p>
-            <a href="#">Create Quiz</a>
+            <a href="<?php echo site_url('Welcome/addDetails');?>">Create Quiz</a>
         </div>
         <div class="images">
             <img src="<?php echo base_url();?>assets/images/shape.png" class="shape">

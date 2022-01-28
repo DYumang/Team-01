@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -32,7 +31,7 @@
                         </div> 
                         <div align="center" class="trial">
                             <h1> 
-                                 <?php
+                                <?php
                                     $profile = array();
                                     $session =$this->session->userdata();
                                     $id = $session['id'];
@@ -45,7 +44,7 @@
 
                                     echo ucfirst($profile['firstName']); echo "\r\n";
                                     echo ucfirst($profile['lastName']); echo "\r\n";
-                               ?>
+                                ?>
                            </h1>
 
                             <h2><span>
@@ -65,7 +64,7 @@
                                     echo "<br>";
                                     echo ":D ";
                                 ?>
-                                </h3>
+                            </h3>
                         </div>
                         
                 </div>
@@ -114,11 +113,12 @@
 
             <!-- TAB 3 -->    
                 <input type="radio" name="name" >
-                <div class="content">
-                    <div class="title">
-                     Quiz List (answered/interacted)
-                    </div>
-                </div>
+                    <div class="content">
+                        <div class="title">
+                            Quiz List (interacted/answered)
+                        </div>
+                        
+                    </div>   
 
             <!-- TAB 4 -->
                 <input type="radio" name="name" >
