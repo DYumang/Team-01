@@ -6,7 +6,7 @@ class Crud_model extends CI_Model {
         $this->load->database();
     }
 
-    public function createData() {
+    function createData() {
         $data = array (
             'lastName' => $this->input->post('lastName'),
             'firstName' => $this->input->post('firstName'),
@@ -17,17 +17,17 @@ class Crud_model extends CI_Model {
         $this->db->insert('tbl_name', $data);
     }
 
-    public function getAllData() {
+    function getAllData() {
         $query = $this->db->query('SELECT * FROM tbl_name');
         return $query->result();
     }
 
-    public function getData($id) {
+    function getData($id) {
         $query = $this->db->query('SELECT * FROM tbl_name WHERE `id` =' .$id);
         return $query->row();
     }
 
-    public function updateData($id) {
+    function updateData($id) {
         $data = array (
             'lastName' => $this->input->post('lastName'),
             'firstName' => $this->input->post('firstName'),
@@ -39,7 +39,7 @@ class Crud_model extends CI_Model {
         $this->db->update('tbl_name', $data);
     }
 
-    public function deleteData($id) {
+    function deleteData($id) {
         $this->db->where('id', $id);
         $this->db->delete('tbl_name');
     }

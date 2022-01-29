@@ -1,16 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<html>
+    <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/exam.css">
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/joinquiz.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>QuizHub | Quiz Details</title>
-</head>
-<body>
-
-<div class="main">
+    <title>QuizHub | Join Quiz</title>
+    </head>
+    <body>
+        <p>
+			<?php
+			if(isset($msg)){
+				echo $msg;
+			}
+			?>
+		</p>
+    <div class="main">
         <nav>
             <img src="<?php echo base_url();?>assets/images/logo.png" class="logo">
             <ul>
@@ -28,24 +33,17 @@
             <li><a href="<?php echo base_url('Welcome/LogoutController');?>">Logout</a></li>
         </ul> </nav>
     </div>
-
-<div class="center">
-         <h2>Enter Quiz Details</h2>
-         <form method="post" action="<?php echo base_url()?>ExamController/addQuestions" >
-         <?php echo validation_errors();?>
-         <div class="txt_field">
-                <input type="text" name="exam_title" id="exam_title" required placeholder="Enter Quiz Title">    
-        </div>
-        <div class="txt_field">
-                <input type="text" name="exam_code" id="exam_code" required placeholder="exam code 8 characters only">
-        </div>
+    <div class="center">
+        <h1 class="title">Take A Quiz!</h1>
+        <form method="post" action="">
+            <p><?php echo validation_errors(); ?></p>
+            <div class="txt_field">
+                <input type="text" name="exam_code" id="exam_code" placeholder="Enter Your Quizcode"><br>
+            </div>
             <div>
-                <input type="submit" name="submit" value="Submit Form">
+            <input type="submit" name="submit" value="Submit Form">
             </div>
         </form>
-
-    </div>
-
-    
-</body>
+    </div>        
+    </body>
 </html>
