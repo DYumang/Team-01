@@ -102,7 +102,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			redirect (base_url() . 'Welcome/Login');
 			}
 			else{	
-				$status = $this->user_model->loginmodel($username, $password);
+				$status = $this->user_model->loginmodel ($username, sha1($password));
 				if($status!=false){
 					$session_data = array(
 					'username' => $username,
@@ -121,62 +121,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					
 				}
 				else{
+					// var_dump($status);
+					// exit;
 					$this->session->set_flashdata('error', 'Invalid username and Password');
 					redirect (base_url() . 'Welcome/Login');
 				}
 		 }
 		
 		
-	}
-
-//eto yung bago danne
-	public function addDetails(){ //form_validation add details of quiz
-        $this->load->library('form_validation');
-		$this->form_validation->set_rules('exam_title','Quiz Title','trim|required');
-		$this->form_validation->set_rules('total_question','Total Question','trim|required');
-		$this->form_validation->set_rules('marks_if_right','Marks if correct','trim|required');
-		$this->form_validation->set_rules('marks_if_wrong','Marks if wrong','trim|required');
-		$this->form_validation->set_rules('exam_code','Exam_code','trim|required');
-	
-			if($this->form_validation->run()){
-                 //true
-				$this->load->model("Quiz_model");
-//eto dinagdag ko
-				$exam_id = bin2hex(openssl_random_pseudo_bytes(10));
-                $data=array(
-					'exam_title' => $this->input->post('exam_title'),
-					'total_question' => $this->input->post('total_question'),
-					'marks_if_right' => $this->input->post('marks_if_right'),
-					'marks_if_wrong' => $this->input->post('marks_if_wrong'),
-					'exam_code' => $this->input->post('exam_code'),
-					'exam_id' => $exam_id,
-					);
-				$this->Quiz_model->add($data);
-				redirect(base_url() . "Welcome/addquestions");
-            }
-			else{
-				//false
-				$this->load->view('examview/exam');
-			}
-
-		
-
-	}
-
-	public function addQuestions(){
-		   $this->load->library('form_validation');
-		   $this->form_validation->set_rules('exam_title','Quiz Title','trim|required');
-		   $this->form_validation->set_rules('total_question','Total Question','trim|required');
-		   $this->form_validation->set_rules('marks_if_right','Marks if correct','trim|required');
-		   $this->form_validation->set_rules('marks_if_wrong','Marks if wrong','trim|required');
-		   $this->form_validation->set_rules('exam_code','Exam_code','trim|required');
-           
-
-           $this->load->view('examview/quizform');
-	}
-
-    public function Join(){
-		$this->load->view('joinquiz');	
 	}
 
 	// public function Userdata(){

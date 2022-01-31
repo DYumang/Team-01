@@ -1,9 +1,14 @@
 <?php
     class Exam_model  extends CI_Model{
-        public $id;
-        public $title;
-        public $exam_code;
-        public $questions = array(
-        );
+
+        public function __construct() {
+            $this->load->database();
+        }
+
+        public function add($data){
+       
+            $this->db->insert('exam_details_table',$data);
+        
+        }
     }
 ?>
