@@ -12,18 +12,9 @@ class Crud_model extends CI_Model {
             'firstName' => $this->input->post('firstName'),
             'birthdate' => $this->input->post('birthdate'),
             'username' => $this->input->post('username'),
-            // 'password' => sha1($this->input->post('password'))
-            'password' => $this->input->post('password')
+            'password' => sha1($this->input->post('password'))
         );
         $this->db->insert('tbl_name', $data);
-    }
-
-    function uploadPic($id) {
-        $data = array (
-            'pic' => $this->input->post('pic')
-        );
-        $this->db->where('id', $id);
-        $this->db->update('tbl_name', $data);
     }
 
     function getAllData() {

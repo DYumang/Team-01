@@ -1,11 +1,15 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+
+
 	class Welcome extends CI_Controller {
 
 	public function __construct() {
 		parent:: __construct();
+		$this->load->helper('string');
 		$this->load->model('Crud_model');
+		$this->load->model('Quiz_model');
 	}
 
 	public function index()
@@ -13,14 +17,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		$this->load->view('home');
 	}
 
-        public function Profile()
+	public function Profile()
 		{
-			$this->load->view('userProfile');
+			$this->load->view('profile/userProfile');
 		}
 
 		public function ProfileUpdate()
 		{
-			$this->load->view('userProfileUpdate');
+			$this->load->view('profile/userProfileUpdate');
 		}
 
 		public function Study()
@@ -30,31 +34,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		public function Uploads()
 		{
-			$this->load->view('uploads');
+			$this->load->view('profile/uploads');
 		}
-
-		public function Home()
-		{
-			$this->load->view('dashboard');
-		}
-
-		function UpdateData()
+		
+	function UpdateData()
 		{
 			$this->Crud_model->updateData();
 
 			$this->load->view('userProfile');		
 				
 		}
+	
 
 
-		public function RegisterNow()
+
+
+
+
+	public function RegisterNow()
 	{
 		$this->Crud_model->createData();
 
 		$this->load->view('login');		
 			
 	}
-
 
 	public function Login()
 	{
@@ -80,11 +83,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         redirect (base_url() . 'Welcome/Login');
 	}
 
-
-
 	public function loginnow()
 	{
-		
+		$this->load->library('form_validation');
 		$this->form_validation->set_rules('username','Username', 'required');
 		$this->form_validation->set_rules('password','Password', 'required');
 		$username = $this->input->post('username');
@@ -95,8 +96,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 		else{
 					
-			// $status = $this->user_model->loginmodel($username, sha1($password));
-			$status = $this->user_model->loginmodel($username, $password);
+			$status = $this->user_model->loginmodel($username, sha1($password));
 			if($status!=false){
 				$session_data = array(
 				'username' => $username,
@@ -113,11 +113,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 
 		 }
+		}
 	}
-
-
-}
-
-
-
 

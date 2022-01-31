@@ -9,7 +9,7 @@ class CrudController extends CI_Controller {
 
 	public function index() {
         $data['result'] = $this->Crud_model->getAllData();
-		$this->load->view('crudView', $data);
+		$this->load->view('crud/crudView', $data);
     }
 
     public function create() {
@@ -19,7 +19,7 @@ class CrudController extends CI_Controller {
 
     public function edit($id) {
         $data['row'] = $this->Crud_model->getData($id);
-        $this->load->view('crudEdit', $data);
+        $this->load->view('crud/crudEdit', $data);
     }
 
     public function update($id) {

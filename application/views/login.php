@@ -7,7 +7,7 @@
     <!-- <title>Login Form | CodingLab</title> -->
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
-    <title>login</title>
+    <title>QuizHub | Login</title>
   </head>
   <body>
      <img src="<?php echo base_url();?>assets/images/logo.png" id="logologin" >
@@ -28,7 +28,7 @@
           <div class="row button">
             <input type= "submit" value="Login">
 
-          <div class="signup-link">Not a member? <a href="<?php echo site_url('welcome/index')?>">Signup now</a></div>
+          <div class="signup-link">Not a member? <a href="<?php echo site_url('Welcome/index')?>">Sign up Now!</a></div>
         </form>
         <?php echo validation_errors();?>
       </div>
