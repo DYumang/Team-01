@@ -18,11 +18,11 @@ nav{
     margin: auto;
     padding: 20px 0;
     align-items: center;
-    justify-content: space-between;
+    justify-content: left;
 }
 
 .logo{
-    width: 100px;
+    width: 200px;
     cursor: pointer;
 }
 
@@ -50,24 +50,22 @@ body{
     height: 100vh;
     overflow: hidden;
 }
-
 .center{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -40%);
     width: 700px;
-    height: 460px;
+    height: 260px;
     background-color: #F4BEEE;
     border-radius: 10px;
 }
 
-.center h2{
+.center h1{
     text-align: center;
     padding: 20px 0;
     border-bottom: 1px solid silver;
 }
-
 .center form{
     padding: 0 40px;
     box-sizing: border-box;
@@ -88,17 +86,6 @@ form .txt_field{
     background: white;
     outline: none;
 }
-
-.txt_field label{
-    position: absolute;
-    top: 50%;
-    left: 5px;
-    color: #adadad;
-    transform: translateY(-50%);
-    font-size: 16px;
-    pointer-events: none;
-}
-
 input[type="submit"]{
     width: 30%;
     height: 40px;

@@ -7,7 +7,7 @@
     <!-- <title>Login Form | CodingLab</title> -->
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/signup.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
-    <title>signup</title>
+    <title>QuizHub | Sign Up</title>
   </head>
   <body>
     <img src="<?php echo base_url();?>assets/images/logo.png" class="logosignup" width="100px" height="100px" >

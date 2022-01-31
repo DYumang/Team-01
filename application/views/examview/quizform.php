@@ -1,5 +1,7 @@
 <html>
     <head>
+        <title>QuizHub | Create Quiz</title>
+    </head>
         <body>
         <p>
             <?php
@@ -8,28 +10,33 @@
             }
             ?>
         </p>
+        
         <p><?php echo validation_errors(); ?></p>
             <h1>Quiz Form Entry</h1>
-            <?php
-                $this->db->select('total_question');
-                $query=$this->db->get('exam_details_table');
-                $total=['total_question']; 
-                for($i=1;$i<=$query;$i++){
-                    echo '<form method="post" action="">
-                        <label>Enter Question'.' '.$i.'</label><br>
-                        <input type="text" name="question_title" id="question_id" placeholder="Insert Question Here">
-                        <ol type="A">
-                        <li>Option 1: <input type="text" name="option_title" placeholder="Option 1" id="option_id"></li>
-                        <li>Option 2: <input type="text" name="option_title" placeholder="Option 2" id="option_id"></li>
-                        <li>Option 3: <input type="text" name="option_title" placeholder="Option 3" id="option_id"></li>
-                        <li>Option 4: <input type="text" name="option_title" placeholder="Option 4" id="option_id"></li>
-                    </ol><br>
-                    <label>Assign Answer: </label>
-                    <input type="number" name="answer_option" placeholder="1" min="1" max="4">    
-                </form><br>';
-                }
-            ?>
-            <br><input type="submit" name="submit" value="Submit Form">
+            <form method="POST" action="<?php echo base_url()?>ExamController/addExam">
+            <input type="hidden" name="exam_id" value="exam_id">
+            <?php 
+            $opt=4;
+            for($i=1;$i<=$questionArray.count();$i++){ ?>
+                <br><br><label>Enter Question <?=$i?></label><br>
+
+                <input type="text" name="questions[<?=$i?>]"  placeholder="Insert Question '<?=$i?>' Here">
+                <ol type="A">
+                <?php for($j = 1; $j <= $optionArray.count(); $j++) { ?>
+                    <li>Option <?=$j?>: <input type="text" name="questions[<?=$i?>][options][<?=$j?>]" placeholder="Option <?=$j?>" id="<?=$i.$j?>"></li>
+                <?php } ?>
+                </ol><br>
+                <label>Assign Answer for Question <?=$i?>: </label><br>
+                <select id="isCorrect[<?=$i?>]" name="isCorrect[<?=$i?>]" >
+                
+                    <option value="" selected>Select Answer</option>
+                    <?php for($j = 1; $j <= $optionArray.count($opt); $j++) { ?>
+                        <option value="<?=$j?>"> option <?=$j?></option>
+                    <?php } ?>  
+                </select>
+            <?php } ?>
+            <br><br>
+            <br><input type="submit" name="submit" value="Submit Form">'
+            </form>
         </body>
-    </head>
 </html>

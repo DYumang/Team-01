@@ -19,7 +19,7 @@ class User_model extends CI_Model{
     public function loginmodel($username,$password)
     {
         $password = $password;
-        
+
         // $query=$this->db->query("SELECT * FROM tbl_name WHERE password='$password' AND username='$username'");
         $this->db->select('id,username');
         $this->db->where('username',$username);
@@ -41,32 +41,34 @@ class User_model extends CI_Model{
 
     public function getData($session_id)
 	{
-		$fetch_pass=$this->db->query("select * from tbl_name where id='$session_id'");
-		$res=$fetch_pass->row();
-		return $res;
+		$fetch_pass=$this->db->query("select password from tbl_name where id='$session_id'");
+		$pass=$fetch_pass->row();
+        // var_dump($pass);
+        // exit;
+		return $pass;
 	}
 
 
-   public function profile_update($session_id,$new_pass,$lastName,$firstName,$username,$birthdate)
+   public function profile_update($id,$new_pass,$lastName,$firstName,$username,$birthdate)
     {
-        $update_pass=$this->db->query("UPDATE tbl_name set password='$new_pass'  where id='$session_id'");
-        $que_pass=$this->db->query("select * from tbl_name where id='$session_id'"); 
+        $update_pass=$this->db->query("UPDATE tbl_name set password='$new_pass'  where id='$id'");
+        $que_pass=$this->db->query("select * from tbl_name where id='$id'"); 
 		$row_pass=$que_pass->row();   
 
-        $update_lname=$this->db->query("UPDATE tbl_name set lastName='$lastName'  where id='$session_id'");
-		$que_lname=$this->db->query("select * from tbl_name where id='$session_id'"); 
+        $update_lname=$this->db->query("UPDATE tbl_name set lastName='$lastName'  where id='$id'");
+		$que_lname=$this->db->query("select * from tbl_name where id='$id'"); 
 		$row_lname=$que_lname->row(); 
 
-        $update_fname=$this->db->query("UPDATE tbl_name set firstName='$firstName'  where id='$session_id'");        
-		$que_fname=$this->db->query("select * from tbl_name where id='$session_id'"); 
+        $update_fname=$this->db->query("UPDATE tbl_name set firstName='$firstName'  where id='$id'");        
+		$que_fname=$this->db->query("select * from tbl_name where id='$id'"); 
 		$row_fname=$que_fname->row(); 
 
-        $update_uname=$this->db->query("UPDATE tbl_name set username='$username'  where id='$session_id'");
-		$que_uname=$this->db->query("select * from tbl_name where id='$session_id'"); 
+        $update_uname=$this->db->query("UPDATE tbl_name set username='$username'  where id='$id'");
+		$que_uname=$this->db->query("select * from tbl_name where id='$id'"); 
 		$row_uname=$que_uname->row(); 
 
-        $update_bday=$this->db->query("UPDATE tbl_name set birthdate='$birthdate'  where id='$session_id'");
-		$que_bday=$this->db->query("select * from tbl_name where id='$session_id'"); 
+        $update_bday=$this->db->query("UPDATE tbl_name set birthdate='$birthdate'  where id='$id'");
+		$que_bday=$this->db->query("select * from tbl_name where id='$id'"); 
 		$row_bday=$que_bday->row();         
     }    
 

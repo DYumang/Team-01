@@ -32,25 +32,15 @@
                         <div align="center" class="trial">
                             <h1> 
                                 <?php
-                                    $profile = array();
-                                    $session =$this->session->userdata();
-                                    $id = $session['id'];
-                                    $queryy = $this->db->query("SELECT * FROM tbl_name WHERE id='$id'");
-                                    $profile['username'] = $queryy->row()-> {'username'};  
-
-                                    if($queryy->num_rows()!=0){
-                                        $profile = $queryy->row_array();
-                                    }
-
-                                    echo ucfirst($profile['firstName']); echo "\r\n";
-                                    echo ucfirst($profile['lastName']); echo "\r\n";
+                                   echo ucfirst($profile->firstName);  echo "\r\n";
+                                   echo ucfirst($profile->lastName); echo "\r\n";
                                 ?>
                            </h1>
 
                             <h2><span>
                                 <?php 
                                     echo "@";
-                                    echo $profile['username'];
+                                    echo $profile->username;
                                     echo "\r\n";
                                     echo "\r\n";
                                 ?>
@@ -60,7 +50,7 @@
                                 <?php
                                     echo "<br>";
                                     echo "Born on ";
-                                    echo $profile['birthdate'] . "\xA";
+                                    echo ucfirst($profile->birthdate);
                                     echo "<br>";
                                     echo ":D ";
                                 ?>

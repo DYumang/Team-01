@@ -33,7 +33,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	public function Study()
 		{
-			$this->load->view('StudyTips');
+			$session =$this->session->userdata();
+			$session_id = $session['id'];
+			$data['profile'] = $this -> user_model -> profile($session_id);
+			$this->load->view('StudyTips',$data);
 		}
 		
 	public function Uploads()
@@ -92,36 +95,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		$this->form_validation->set_rules('username','Username', 'required');
 		$this->form_validation->set_rules('password','Password', 'required');
 		$username = $this->input->post('username');
-			$password = $this->input->post('password');
-
-		if($this->form_validation->run()== FALSE){
+		$password = $this->input->post('password');
+			
+			if($this->form_validation->run()== FALSE)
+			{
 			redirect (base_url() . 'Welcome/Login');
-		}
-		else{
-					
-			$status = $this->user_model->loginmodel($username, sha1($password));
-			if($status!=false){
-				$session_data = array(
-				'username' => $username,
-				'id' => $status->id,
-				);
-				
-				$this->session->set_userdata($session_data);
-				
-				$session =$this->session->userdata();
-				$session_id = $session['id'];
-				$data['profile']=$this->user_model->profile($session_id);
-				// var_dump($data);
-				// exit;
-				$this->load->view('dashboard',$data);
-				
-			}else{
-
-
-				$this->session->set_flashdata('error', 'Invalid username and Password');
-				redirect (base_url() . 'Welcome/Login');
 			}
-
+			else{	
+				$status = $this->user_model->loginmodel($username, $password);
+				if($status!=false){
+					$session_data = array(
+					'username' => $username,
+					'id' => $status->id,
+					);
+					
+					$this->session->set_userdata($session_data);
+					
+					$session =$this->session->userdata();
+					$session_id = $session['id'];
+					$data['profile']=$this->user_model->profile($session_id);
+					// var_dump($data);
+					// exit;
+					$this->load->view('dashboard',$data);
+					redirect('welcome/Home');
+					
+				}
+				else{
+					$this->session->set_flashdata('error', 'Invalid username and Password');
+					redirect (base_url() . 'Welcome/Login');
+				}
 		 }
 		
 		
