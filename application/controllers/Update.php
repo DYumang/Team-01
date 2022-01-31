@@ -32,9 +32,7 @@ class Update extends CI_Controller
 			else{ 
 				echo "Invalid";
 			}
-	
 		}
-
 		$this->load->view('profile/userProfileUpdate');	
 		redirect('welcome/Profile');
 	}
