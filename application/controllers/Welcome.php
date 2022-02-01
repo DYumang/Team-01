@@ -55,8 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	{
 		$this->Crud_model->createData();
 
-		$this->load->view('login');		
-			
+		$this->load->view('login');			
 	}
 
 	public function Login()

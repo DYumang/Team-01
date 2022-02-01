@@ -2,13 +2,13 @@
 
 
   class ExamController extends CI_Controller {
-    public function __construct() {
+    public function __construct(){
     parent:: __construct(); 
     $this->load->model('Exam_model');
     $this->load->model('Question_model');
     $this->load->model('Option_model');
-
     }
+    
 //eto yung bago danne
 public function addDetails(){ //form_validation add details of quiz
   $this->load->library('form_validation');
@@ -22,6 +22,7 @@ if($this->form_validation->run()){
            //true
   $this->load->model("Exam_model");
 //eto dinagdag ko
+//forloop
   $exam_id = bin2hex(openssl_random_pseudo_bytes(10));
           $data=array(
     'exam_title' => $this->input->post('exam_title'),
@@ -55,8 +56,12 @@ $data=array(
 'exam_id' => $exam_id,
 'total_question'=> $total_question[0]['total_question'],
 );
-     $this->load->view('examview/quizform',$data);
+   $this->Question_model->input($total_question,$exam_id);
+   $this->load->view('examview/quizform',$data);
+   
 }
+
+
 
 public function Join(){
 $this->load->view('examview/joinquiz');	

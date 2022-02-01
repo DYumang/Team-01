@@ -12,7 +12,7 @@
         </p>
         <p><?php echo validation_errors(); ?></p>
             <h1>Quiz Form Entry</h1>
-            <form method="POST">
+            <form method="POST" >
             <input type="hidden" name="exam_id" value="<?=$exam_id?>">
             <?php 
             $opt = 4;
