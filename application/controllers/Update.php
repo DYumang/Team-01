@@ -26,14 +26,24 @@ class Update extends CI_Controller
 			$user_data=$this->User_model->getData($session_id);
 			// add this condition to if currentPassword == oldPassword
 			if($user_data->password == $old_pass && $old_pass != $new_pass && $new_pass == $confirm_pass){
+<<<<<<< HEAD
 				$this->User_model->profile_update($session_id,sha1($new_pass),$lastName,$firstName,$username,$birthdate);
+=======
+				$this->User_model->profile_update($session_id,$new_pass,$lastName,$firstName,$username,$birthdate);
+>>>>>>> 46a299707b57cc186130b9444712b80048b236ed
 								
 			}
 			else{ 
 				echo "Invalid";
 			}
 		}
+<<<<<<< HEAD
 		$this->load->view('profile/userProfileUpdate');	
 		redirect('welcome/Profile');
+=======
+
+		$this->load->view('userProfileUpdate');	
+		redirect('welcome/Home');
+>>>>>>> 46a299707b57cc186130b9444712b80048b236ed
 	}
 }
