@@ -13,10 +13,7 @@
         }
 
         public function input($total_question,$exam_id){
-            // $this->db->select('*');
-            // $this->db->from('exam_details_table');
-            // $this->db->where('total_question',$total_question);
-            // $this->db->where('exam_id',$exam_id);
+
             $question_id = bin2hex(openssl_random_pseudo_bytes(10));
             $qnstext=array(
             'questions' =>$this->input->post('questions'),

@@ -14,13 +14,8 @@
         <nav>
             <img src="<?php echo base_url();?>assets/images/logo.png" class="logo">
             <ul>
-<<<<<<< HEAD
                 <li><a href="<?php echo site_url('Welcome/Home'); ?>">Home</a></li>
                 <li><a href="<?php echo site_url('ExamController/Join');?>">Join Quiz</a></li>
-=======
-                <li><a href="<?php echo site_url('Welcome/Dashboard'); ?>">Home</a></li>
-                <li><a href="<?php echo site_url('Welcome/Join');?>">Join Quiz</a></li>
->>>>>>> 46a299707b57cc186130b9444712b80048b236ed
                 <li><a href="#">Quiz List</a></li>
                 <li><a href="<?php echo site_url('Welcome/Study'); ?>">Study Tips</a></li>
                 <li><a href="<?php echo site_url('Welcome/Profile'); ?>">Profile</a></li>

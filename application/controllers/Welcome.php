@@ -9,25 +9,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		parent:: __construct();
 		$this->load->helper('string');
 		$this->load->model('Crud_model');
-		$this->load->model('Question_model');
+
 	}
 
 	public function index()
 	{
+		
 		$this->load->view('home');
 	}
 
 	public function Profile()
 		{
-			$this->load->view('profile/userProfile');
+			$session =$this->session->userdata();
+			$session_id = $session['id'];
+			$data['profile'] = $this -> user_model -> profile($session_id);
+			$this->load->view('profile/userProfile',$data);
+			
 		}
-
-		public function ProfileUpdate()
+	public function ProfileUpdate()
 		{
 			$this->load->view('profile/userProfileUpdate');
 		}
 
-		public function Study()
+	public function Study()
 		{
 			$session =$this->session->userdata();
 			$session_id = $session['id'];
@@ -35,25 +39,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->load->view('StudyTips',$data);
 		}
 		
-		public function Uploads()
+	public function Uploads()
 		{
 			$this->load->view('profile/uploads');
 		}
 		
-	function UpdateData()
+	public function UpdateData()
 		{
 			$this->Crud_model->updateData();
 
 			$this->load->view('userProfile');		
 				
 		}
-	
-
-
-
-
-
-
 	public function RegisterNow()
 	{
 		$this->Crud_model->createData();
@@ -67,6 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	public function Landing(){
+		
 		$this->load->view('landing');	
 	}
 
@@ -74,9 +72,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		$this->load->view('aboutview');
 	}
 
-	public function Dashboard()
+	public function Home()
 	{
-		$this->load->view('dashboard');
+		$session =$this->session->userdata();
+		$session_id = $session['id'];
+		$data['profile'] = $this -> user_model -> profile($session_id);
+		$this->load->view('dashboard',$data);
+
+		
 	}
 
 	public function LogoutController(){
@@ -96,26 +99,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			if($this->form_validation->run()== FALSE)
 			{
 			redirect (base_url() . 'Welcome/Login');
-<<<<<<< HEAD
-=======
-		}
-		else{
-					
-			$status = $this->user_model->loginmodel($username, sha1($password));
-			if($status!=false){
-				$session_data = array(
-				'username' => $username,
-				'id' => $status->id,
-				);
-
-				$this->session->set_userdata($session_data);
-				$this->load->view('dashboard');
-			}else{
-
-
-				$this->session->set_flashdata('error', 'Invalid username and Password');
-				redirect (base_url() . 'Welcome/Login');
->>>>>>> 46a299707b57cc186130b9444712b80048b236ed
 			}
 			else{	
 				$status = $this->user_model->loginmodel ($username, sha1($password));
@@ -143,7 +126,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					redirect (base_url() . 'Welcome/Login');
 				}
 		 }
-<<<<<<< HEAD
 		
 		
 	}
@@ -162,8 +144,3 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 
-=======
-		}
-	}
-
->>>>>>> 46a299707b57cc186130b9444712b80048b236ed

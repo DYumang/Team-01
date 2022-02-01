@@ -19,13 +19,8 @@
         <nav>
             <img src="<?php echo base_url();?>assets/images/logo.png" class="logo">
             <ul>
-<<<<<<< HEAD
                 <li><a href="<?php echo site_url('Welcome/Home'); ?>">Home</a></li>
                 <li><a href="<?php echo site_url('ExamController/Join');?>">Join Quiz</a></li>
-=======
-                <li><a href="<?php echo site_url('Welcome/Dashboard'); ?>">Home</a></li>
-                <li><a href="<?php echo site_url('Welcome/Join');?>">Join Quiz</a></li>
->>>>>>> 46a299707b57cc186130b9444712b80048b236ed
                 <li><a href="#">Quiz List</a></li>
                 <li><a href="<?php echo site_url('Welcome/Study'); ?>">Study Tips</a></li>
                 <li><a href="<?php echo site_url('Welcome/Profile'); ?>">Profile</a></li>
@@ -40,17 +35,10 @@
     </div>
     <div class="center">
         <h1 class="title">Take A Quiz!</h1>
-<<<<<<< HEAD
         <form method="post" action="<?php echo base_url('ExamController/AnswerQuiz');?>">
             <p><?php echo validation_errors(); ?></p>
             <div class="txt_field">
                 <input type="text" name="attempt_code" id="attempt_code" placeholder="Enter Your Quizcode"><br>
-=======
-        <form method="post" action="">
-            <p><?php echo validation_errors(); ?></p>
-            <div class="txt_field">
-                <input type="text" name="exam_code" id="exam_code" placeholder="Enter Your Quizcode"><br>
->>>>>>> 46a299707b57cc186130b9444712b80048b236ed
             </div>
             <div>
             <input type="submit" name="submit" value="Submit Form">

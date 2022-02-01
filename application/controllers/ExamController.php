@@ -6,7 +6,7 @@
     parent:: __construct(); 
     $this->load->model('Exam_model');
     $this->load->model('Question_model');
-    $this->load->model('Option_model');
+    // $this->load->model('Option_model');
     }
     
 //eto yung bago danne
@@ -20,7 +20,7 @@ $this->form_validation->set_rules('exam_code','Exam_code','trim|required|exact_l
 
 if($this->form_validation->run()){
            //true
-  // $this->load->model("Exam_model");
+  $this->load->model("Exam_model");
 //eto dinagdag ko
 //forloop
   $exam_id = bin2hex(openssl_random_pseudo_bytes(10));
@@ -33,10 +33,7 @@ if($this->form_validation->run()){
     'exam_id' => $exam_id,
     );
   $this->Exam_model->add($data);
-  // var_dump($data);
-  //  exit;
-  $this->load->view('examview/quizform',$data);
-  // redirect(base_url("ExamController/addquestions/".$exam_id));//nagpasa ng parameter
+  redirect(base_url("ExamController/addquestions/".$exam_id));//nagpasa ng parameter
       }
 else{
   //false
@@ -46,39 +43,29 @@ else{
 }
 
 public function addquestions($exam_id){
-$post = $this->input->post();
-// if(isset($post) && $post != null) {
-// echo "<pre>";
-// print_r($post);
-// exit;
 
-// }
+$post = $this->input->post();
+if(isset($post) && $post != null) {
+echo "<pre>";
+print_r($post);
+exit;
+
+}
 $total_question = $this->Question_model->gettotalquestion($exam_id);
-// $data=array(
-// 'exam_id' => $exam_id,
-// 'total_question'=> $total_question[0]['total_question'],
-// );
+$data=array(
+'exam_id' => $exam_id,
+'total_question'=> $total_question[0]['total_question'],
+);
    $this->Question_model->input($total_question,$exam_id);
-   
    $this->load->view('examview/quizform',$data);
    
 }
 
-public function Join(){
-  $this->load->view('examview/joinquiz');	
-  }
 
-public function AnswerQuiz(){
-  $attempt_code=$this->input->post('attempt_code');
-  $query=$this->Exam_model->checkcode($attempt_code);
-  if($query){
-    $this->load->view('examview/takequiz');
-  }
-  else{
-    var_dump($attempt_code);
-    var_dump($exam_code);
-    exit;
-  }
+
+public function Join(){
+$this->load->view('examview/joinquiz');	
 }
+
 
 }
