@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		parent:: __construct();
 		$this->load->helper('string');
 		$this->load->model('Crud_model');
-		$this->load->model('Quiz_model');
+		$this->load->model('Question_model');
 	}
 
 	public function index()

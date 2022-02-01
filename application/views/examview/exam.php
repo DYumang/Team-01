@@ -14,7 +14,7 @@
         <nav>
             <img src="<?php echo base_url();?>assets/images/logo.png" class="logo">
             <ul>
-                <li><a href="<?php echo site_url('Welcome/Dashboard'); ?>">Home</a></li>
+                <li><a href="<?php echo site_url('Welcome/Home'); ?>">Home</a></li>
                 <li><a href="<?php echo site_url('ExamController/Join');?>">Join Quiz</a></li>
                 <li><a href="#">Quiz List</a></li>
                 <li><a href="<?php echo site_url('Welcome/Study'); ?>">Study Tips</a></li>
@@ -34,6 +34,7 @@
          <form method="post" action="<?php echo base_url()?>ExamController/addDetails" >
          <?php echo validation_errors();?>
          <div class="txt_field">
+             <input type="hidden" name="exam_id" id="exam_id">
                 <input type="text" name="exam_title" id="exam_title" required placeholder="Enter Quiz Title">    
             </div>
             <div class="txt_field">
