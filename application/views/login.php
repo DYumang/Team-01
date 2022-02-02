@@ -23,18 +23,12 @@
             <i class="fas fa-lock"></i>
             <input type="password" placeholder="Password" name="password" required>
           </div>
- 
-
           <div class="row button">
             <input type= "submit" value="Login">
-
           <div class="signup-link">Not a member? <a href="<?php echo site_url('Welcome/index')?>">Sign up Now!</a></div>
         </form>
         <?php echo validation_errors();?>
       </div>
     </div>
-
-
-
   </body>
 </html>

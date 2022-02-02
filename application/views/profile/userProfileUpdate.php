@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +21,6 @@
                 <li><a href="<?php echo base_url('Welcome/LogoutController');?>">LOGOUT</a></li>
             </ul>
         </nav>
-
         <div align="center">
         <div class="wrapper">
         <div class="title"><span>Update Form</span></div>

@@ -6,7 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Profile</title>
         <link rel="stylesheet" href="<?php echo base_url();?>assets/css/userProfile.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
 
     <body>
@@ -15,7 +17,7 @@
                 <img src="<?php echo base_url();?>assets/images/logo.png"  class="logo">
                     <ul>
                         <li><a href="<?php echo site_url('welcome/Home'); ?>">Home</a></li>
-                        <li><a href="#">Join Quiz</a></li>
+                        <li><a href="<?php echo site_url('ExamController/Join'); ?>">Join Quiz</a></li>
                         <li><a href="#">Quiz List</a></li>
                         <li><a href="<?php echo site_url('welcome/Study'); ?>">Study Tips</a></li>
                         <li><a href = "<?php echo site_url('welcome/Profile'); ?>">Profile</a></li>
@@ -23,7 +25,6 @@
                     </ul>
             </nav> 
             <div class="tabs">
-            <!-- TAB 1 -->
                 <input type="radio" name="name" checked>
                 <div class="content">
                         <div class="title">
@@ -56,17 +57,13 @@
                                 ?>
                             </h3>
                         </div>
-                        
                 </div>
-                
-            <!-- TAB 2 -->
                 <input type="radio" name="name" >
                 <div class="content">
                     <div class="title">
                         User Profile Update
                     </div>
                     <div class="form" align="center">
-    
                         <form method="post" action="<?php echo site_url('Update')?>">
                             <div class="row">
                                 <i class="fas fa-user"></i>
@@ -100,17 +97,12 @@
                         </form> 
                     </div>
                 </div>
-
-            <!-- TAB 3 -->    
                 <input type="radio" name="name" >
                     <div class="content">
                         <div class="title">
                             Quiz List (interacted/answered)
                         </div>
-                        
-                    </div>   
-
-            <!-- TAB 4 -->
+                    </div>
                 <input type="radio" name="name" >
                 <div class="content">
                     <div class="title">

@@ -40,7 +40,7 @@ nav ul li a{
 }
 
 nav ul li a:hover{
-    color: red;
+    color: rgb(255, 136, 219);
 }
 
 body{

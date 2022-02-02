@@ -1,12 +1,15 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Crud_model extends CI_Model {
-    public function __construct() {
+class Crud_model extends CI_Model
+{
+    public function __construct()
+    {
         $this->load->database();
     }
 
-    function createData() {
+    public function createData()
+    {
         $data = array (
             'lastName' => $this->input->post('lastName'),
             'firstName' => $this->input->post('firstName'),
@@ -17,17 +20,20 @@ class Crud_model extends CI_Model {
         $this->db->insert('tbl_name', $data);
     }
 
-    function getAllData() {
+    public function getAllData()
+    {
         $query = $this->db->query('SELECT * FROM tbl_name');
         return $query->result();
     }
 
-    function getData($id) {
+    public function getData($id)
+    {
         $query = $this->db->query('SELECT * FROM tbl_name WHERE `id` =' .$id);
         return $query->row();
     }
 
-    function updateData($id) {
+    public function updateData($id)
+    {
         $data = array (
             'lastName' => $this->input->post('lastName'),
             'firstName' => $this->input->post('firstName'),
@@ -39,7 +45,8 @@ class Crud_model extends CI_Model {
         $this->db->update('tbl_name', $data);
     }
 
-    function deleteData($id) {
+    public function deleteData($id)
+    {
         $this->db->where('id', $id);
         $this->db->delete('tbl_name');
     }
