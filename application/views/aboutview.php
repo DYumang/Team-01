@@ -20,21 +20,23 @@
 				<div class="content">
 					<h3>hi, let us introduce quiz hub to you!</h3>
 					<p>Quiz Hub is a website where you may take quizzes that are both entertaining and educational.
-                        With this online assessment tool, teachers and students may create and use one another's quizzes. 
-                        Following the distribution of a unique access code to students, a quiz can be presented. It's bouncy and light-hearted, 
+                        With this online assessment tool, teachers and students may create and use one another's
+						quizzes. 
+                        Following the distribution of a unique access code to students, a quiz can be presented.
+						It's bouncy and light-hearted, 
                          so users won't be frightened and can just enjoy the quiz and learn.
                         <br> <br>
-                       An ideal for a variety of online learning scenarios. It is simple to use, adaptable, and enjoyable for users.
-                     Quiz Hub an interesting learning tool that will make learning even more enjoyable for your student!
-                        
+                       An ideal for a variety of online learning scenarios. It is simple to use, adaptable, and
+					   enjoyable for users.
+                     Quiz Hub an interesting learning tool that will make learning even more enjoyable for your
+					 student!   
                         <br>
                         <br>
-
-                        This app includes various capabilities, including the ability to create quizzes, take quizzes, and your own profile.
-                        It also includes study tips to assist users in broadening their knowledge of various learning styles and determining 
+                        This app includes various capabilities, including the ability to create quizzes,
+						take quizzes, and your own profile.
+                        It also includes study tips to assist users in broadening their knowledge of various
+						learning styles and determining 
                          what works best for their individual pacing and mental capabilities.
-                        
-                        
                         </p>
 					<div class="button">
 					<a href="<?php echo site_url('welcome/index')?>">Start Now</a>
@@ -50,7 +52,5 @@
 				<img src="<?php echo base_url();?>assets/images/logo.png" class="girl">
 			</div>
 		</div>
-
-	
 </body>
 </html>

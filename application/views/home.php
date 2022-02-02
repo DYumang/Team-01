@@ -7,14 +7,14 @@
     <!-- <title>Login Form | CodingLab</title> -->
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/signup.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
-    <title>signup</title>
+    <title>QuizHub | Sign Up</title>
   </head>
   <body>
     <img src="<?php echo base_url();?>assets/images/logo.png" class="logosignup" width="100px" height="100px" >
     <div class="container">
       <div class="wrapper">
         <div class="title"><span>SignUp Form</span></div>
-        <form method="post" action="<?php echo site_url('welcome/RegisterNow')?>">
+        <form method="post" action="<?php echo site_url('Welcome/RegisterNow')?>">
           <div class="row">
             <i class="fas fa-user"></i>
             <input type="text" placeholder="Lastname" name="lastName" required>
@@ -35,15 +35,11 @@
             <i class="fas fa-lock"></i>
             <input type="password" placeholder="Password" name="password" required>
           </div>
-
           <div class="row button">
             <input type= "submit" value="SignUp">
-          </div>
-
-            
+          </div>            
         </form>
       </div>
     </div>
-
   </body>
 </html>
