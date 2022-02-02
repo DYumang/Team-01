@@ -41,16 +41,8 @@ class ExamController extends CI_Controller
     $post = $this->input->post();
     if(isset($post) && $post != null)
     {
-        echo "<pre>";
-        print_r($post);
-        exit;
+        $this->Question_model->processquestions($post);
     }
-    $total_question = $this->Question_model->gettotalquestion($exam_id);
-    $data=array(
-      'exam_id' => $exam_id,
-      'total_question'=> $total_question[0]['total_question'],
-    );
-   $this->Question_model->input($total_question,$exam_id);
    $this->load->view('examview/quizform',$data);  
   }
 

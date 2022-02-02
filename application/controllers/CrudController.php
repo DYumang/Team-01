@@ -1,6 +1,4 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
-
 class CrudController extends CI_Controller
 {
     public function __construct()
@@ -23,13 +21,11 @@ class CrudController extends CI_Controller
         $data['row'] = $this->Crud_model->getData($id);
         $this->load->view('crud/crudEdit', $data);
     }
-
     public function update($id)
     {
         $this->Crud_model->updateData($id);
         redirect("CrudController");
     }
-
     public function delete($id)
     {
         $this->Crud_model->deleteData($id);
