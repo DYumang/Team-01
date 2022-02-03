@@ -14,6 +14,14 @@
             $result = $query->result_array();
             return $result;
         }
+        public function getexamid($exam_id)
+        {
+            $this->db->select('exam_id');
+            $this->db->where('exam_id',$exam_id);
+            $query=$this->db->get('exam_details_table');
+            $result = $query->result_array();
+            return $result;
+        }
 
         private function savequestion($exam_id,$questions)
         {
