@@ -114,6 +114,13 @@ input[type="radio"]:checked + .content {
   font-size: 300%;
   color: #aa9e8c;
 }
+.usertitle{
+  margin-left: 0%;
+  margin-top: 1%;
+  font-weight: bold;
+  font-size: 150%;
+  color: #aa9e8c;
+}
 
 .trial h1{
   margin-left: 8%;

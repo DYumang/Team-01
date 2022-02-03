@@ -38,7 +38,7 @@
         
         private function getquestion($exam_id,$questions)
         {
-            $this->db->select('question');
+            $this->db->select('questions');
             $this->db->where('question_id',$question_id);
             $query=$this->db->get('questions_details_table');
             $result = $query->result_array();
@@ -78,6 +78,5 @@
                 }
             }
         }
-
     }
 ?>
