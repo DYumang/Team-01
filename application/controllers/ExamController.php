@@ -64,9 +64,6 @@ class ExamController extends CI_Controller
       }
       else
       {
-        var_dump($attempt_code);
-        var_dump($query['exam_code']);
-        exit;
         $this->load->view('examview/joinquiz');	
       }
   }
@@ -82,9 +79,7 @@ class ExamController extends CI_Controller
     $post = $this->input->post();
     if(isset($post) && $post != null)
     {
-        echo "<pre>";
-        print_r($post);
-        exit;
+        debug($post,TRUE);
         $this->Exam_model->answerprocess($post);
     }
    $this->load->view('dashboard');  

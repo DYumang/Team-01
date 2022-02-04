@@ -35,7 +35,6 @@
             <?php 
             $index = 1;
             for($i=0;$i<count($questions);$i++){ ?>
-            <ol>
                 <input type="hidden" name="questions[<?=$i?>][question]" value="<?=$questions[$i]['question_id']?>">
                 <br><br><label><?=$index?>.<?=$questions[$i]['questions']?> </label><br>
                 <ol type="A">
@@ -43,9 +42,7 @@
                 for($j = 0; $j < count($questions[$i]['options']); $j++) { ?>
                     <input type="radio" id="html" name="questions[<?=$i?>][useranswer]" value="<?=$questions[$i]['options'][$j]['optionid']?>">
                     <label for="option"><?=$questions[$i]['options'][$j]['options']?></label><br>
-                <?php } ?>
-                </ol>
-                </ol><br>
+                <?php } ?><br>
                 <?php $index++; } ?>
         </div>
             <div>
