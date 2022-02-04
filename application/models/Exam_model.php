@@ -15,7 +15,7 @@
             $this->db->from('exam_details_table');
             $this->db->where('exam_code',$attempt_code);
             $query=$this->db->get();
-            $result = $query->result_array();
+            $result = $query->row_array();
             return $result;
         }
 
@@ -36,7 +36,7 @@
             return $result;
         }
         
-        private function getquestion($exam_id,$questions)
+        private function getquestion($question_id,$questions)
         {
             $this->db->select('questions');
             $this->db->where('question_id',$question_id);
@@ -45,7 +45,7 @@
             return $result;
         }
 
-        private function getoptions($question_id,$option){
+        private function getoptions($question_id,$option_id){
             $this->db->select('option');
             $this->db->where('option_id',$option_id);
             $this->db->where('question_id',$question_id);
