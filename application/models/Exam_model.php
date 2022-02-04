@@ -44,7 +44,7 @@
             $this->db->select('exam_id,questions,question_id,answer');
             $this->db->from('questions_details_table');
             
-            for($i=0;$i<$query['total_question'];$i++)
+            for($i=0;$i<count($query);$i++)
             {
                 $this->db->where('exam_id',$query['exam_id']);
                 $queryy[$i]=$this->db->get();
