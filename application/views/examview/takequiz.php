@@ -28,21 +28,25 @@
         </p>
         <div class = "container">
         <p><?php echo validation_errors(); ?> </p>
-            <h1><?=$exam_title?></h1>
-            <form method="POST" action="<?php echo base_url('ExamController/answerquiz/'.$exam_id);?>">
+            <h1><?=$exam['exam_title']?></h1>
+            <form method="POST" action="<?php echo base_url('ExamController/answerquiz/'.$exam['exam_id']);?>">
+            <input type="hidden" name="exam_id" value="<?=$exam['exam_id']?>">
+            <input type="hidden" name="username" value="<?=$user['username']?>">
             <?php 
-            $opt = 4;
-            for($i=1;$i<=$total_question;$i++){ ?>
+            $index = 1;
+            for($i=0;$i<count($questions);$i++){ ?>
             <ol>
-                <br><br><label><?=$i?>.<?=$questions[$i-1]?> </label><br>
+                <input type="hidden" name="questions[<?=$i?>][question]" value="<?=$questions[$i]['question_id']?>">
+                <br><br><label><?=$index?>.<?=$questions[$i]['questions']?> </label><br>
                 <ol type="A">
-                <?php for($j = 1; $j <= $opt; $j++) { ?>
-                    <input type="radio" id="html" name="questions[<?=$i?>]option[<?=$j?>]" value="option">
-                    <label for="option"><?=$options?></label><br>
+                <?php $opt = 4;
+                for($j = 0; $j < count($questions[$i]['options']); $j++) { ?>
+                    <input type="radio" id="html" name="questions[<?=$i?>][useranswer]" value="<?=$questions[$i]['options'][$j]['optionid']?>">
+                    <label for="option"><?=$questions[$i]['options'][$j]['options']?></label><br>
                 <?php } ?>
                 </ol>
                 </ol><br>
-                <?php } ?>
+                <?php $index++; } ?>
         </div>
             <div>
             <input type="submit" value="Submit Form">
@@ -51,4 +55,3 @@
     </div>
     </body>
 </html>
-<!--<?php echo $questions[$i]['name']?>-->

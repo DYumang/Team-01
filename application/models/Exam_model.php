@@ -40,13 +40,18 @@
         
         public function getquestion($query)
         {
-            $this->db->select('questions,$question_id');
+            // for($i=0;$i<$query['total_question'];$i++){
+            $this->db->select('exam_id,questions,question_id,answer');
             $this->db->from('questions_details_table');
-            $this->db->where('exam_id',$query['exam_id']);
-            $queryy=$this->db->get();
-            $result=$querry->row_array();
-            var_dump($result);
-            exit;
+            
+            for($i=0;$i<$query['total_question'];$i++)
+            {
+                $this->db->where('exam_id',$query['exam_id']);
+                $queryy[$i]=$this->db->get();
+                $result=$queryy[$i]->result_array();
+                return $result;
+            }
+            // exit;
             // var_dump($queryy);
             // exit;
             // $queryy=$this->db->where('exam_id',$query);
@@ -55,13 +60,18 @@
             // exit;
         }
 
-        private function getoptions($question_id,$option_id){
-            $this->db->select('option');
-            $this->db->where('option_id',$option_id);
-            $this->db->where('question_id',$question_id);
-            $query=$this->db->get('options_details_table');
-            $result = $query->result_array();
-            return $result;
+        public function getoptions($queryy=array()){
+            // var_dump($queryy);
+            // exit;
+            // $this->db->select('question_id,options,optionid');
+            for($i=0;$i<count($queryy);$i++)
+            {
+                $this->db->select('question_id,options,optionid');
+                $this->db->where('question_id',$queryy[$i]['question_id']);
+                $result=$this->db->get('options_details_table');
+                $queryy[$i]['options']=$result->result_array();
+            }
+            return $queryy;
         }
 
         private function getanswer($exam_id,$question_id,$optionid){
