@@ -7,6 +7,8 @@ class ExamController extends CI_Controller
     $this->load->model('Exam_model');
     $this->load->model('Question_model');
   }
+
+  //start of create quiz
   public function addDetails()
   {
     $this->load->library('form_validation');
@@ -41,36 +43,50 @@ class ExamController extends CI_Controller
     $post = $this->input->post();
     if(isset($post) && $post != null)
     {
-        echo "<pre>";
-        print_r($post);
-        exit;
+        $this->Question_model->processquestions($post);
     }
-    $total_question = $this->Question_model->gettotalquestion($exam_id);
-    $data=array(
-      'exam_id' => $exam_id,
-      'total_question'=> $total_question[0]['total_question'],
-    );
-   $this->Question_model->input($total_question,$exam_id);
-   $this->load->view('examview/quizform',$data);  
+   $this->load->view('dashboard');  
   }
+//answer quiz
+  
 
-  public function AnswerQuiz()
+  public function enterquizcode()
   {
     $attempt_code=$this->input->post('attempt_code');
     $query=$this->Exam_model->checkcode($attempt_code);
     if($query)
       {
-        $this->load->view('examview/takequiz');
+        $queryy=$this->Exam_model->getquestion($query);
+        $return['user']=$this->session->userdata();
+        $return['exam']=$query;
+        $return['questions']=$this->Exam_model->getoptions($queryy);
+        $this->load->view('examview/takequiz',$return);
       }
       else
       {
         var_dump($attempt_code);
-        var_dump($exam_code);
+        var_dump($query['exam_code']);
         exit;
+        $this->load->view('examview/joinquiz');	
       }
   }
+
+  
   public function Join()
   {
     $this->load->view('examview/joinquiz');	
+  }
+
+  public function answerquiz($exam_id)
+  {
+    $post = $this->input->post();
+    if(isset($post) && $post != null)
+    {
+        echo "<pre>";
+        print_r($post);
+        exit;
+        $this->Exam_model->answerprocess($post);
+    }
+   $this->load->view('dashboard');  
   }
 }

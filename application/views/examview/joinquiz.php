@@ -31,7 +31,7 @@
             </nav>
         <div class="center">
             <h1 class="title">Take A Quiz!</h1>
-            <form method="post" action="<?php echo base_url('ExamController/AnswerQuiz');?>">
+            <form method="post" action="<?php echo base_url('ExamController/enterquizcode');?>">
                 <p><?php echo validation_errors(); ?></p>
                 <div class="txt_field">
                     <input type="text" name="attempt_code" id="attempt_code" placeholder="Enter Your Quizcode"><br>
