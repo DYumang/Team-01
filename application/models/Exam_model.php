@@ -11,8 +11,10 @@
         }
         public function checkcode($attempt_code)
         {
-            $this->db->select('*');
+            $this->db->select('exam_id,total_question,exam_title');
             $this->db->from('exam_details_table');
+            // $this->db->from('questions_details_table');
+            // $this->db->from('options_details_table');
             $this->db->where('exam_code',$attempt_code);
             $query=$this->db->get();
             $result = $query->row_array();
@@ -36,13 +38,21 @@
             return $result;
         }
         
-        private function getquestion($question_id,$questions)
+        public function getquestion($query)
         {
-            $this->db->select('questions');
-            $this->db->where('question_id',$question_id);
-            $query=$this->db->get('questions_details_table');
-            $result = $query->result_array();
-            return $result;
+            $this->db->select('questions,$question_id');
+            $this->db->from('questions_details_table');
+            $this->db->where('exam_id',$query['exam_id']);
+            $queryy=$this->db->get();
+            $result=$querry->row_array();
+            var_dump($result);
+            exit;
+            // var_dump($queryy);
+            // exit;
+            // $queryy=$this->db->where('exam_id',$query);
+            // $result=$queryy->row_array();
+            // var_dump($queryy);
+            // exit;
         }
 
         private function getoptions($question_id,$option_id){

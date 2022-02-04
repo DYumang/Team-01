@@ -56,13 +56,15 @@ class ExamController extends CI_Controller
     $query=$this->Exam_model->checkcode($attempt_code);
     if($query)
       {
-        $this->load->view('examview/takequiz',$query);
+        $queryy=$this->Exam_model->getquestion($query);
+        $this->load->view('examview/takequiz',$queryy);
       }
       else
       {
         var_dump($attempt_code);
         var_dump($query['exam_code']);
         exit;
+        $this->load->view('examview/joinquiz');	
       }
   }
 

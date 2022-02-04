@@ -28,18 +28,17 @@
         </p>
         <div class = "container">
         <p><?php echo validation_errors(); ?> </p>
-            <h1>Quiz Form</h1>
+            <h1><?=$exam_title?></h1>
             <form method="POST" action="<?php echo base_url('ExamController/answerquiz/'.$exam_id);?>">
-            <input type="hidden" name="exam_id" value="<?=$exam_id?>">
             <?php 
             $opt = 4;
             for($i=1;$i<=$total_question;$i++){ ?>
             <ol>
-                <br><br><label>Question no. <?=$i?></label><br>
+                <br><br><label><?=$i?>.<?=$questions[$i-1]?> </label><br>
                 <ol type="A">
                 <?php for($j = 1; $j <= $opt; $j++) { ?>
                     <input type="radio" id="html" name="questions[<?=$i?>]option[<?=$j?>]" value="option">
-                    <label for="option">Option</label><br>
+                    <label for="option"><?=$options?></label><br>
                 <?php } ?>
                 </ol>
                 </ol><br>
@@ -52,3 +51,4 @@
     </div>
     </body>
 </html>
+<!--<?php echo $questions[$i]['name']?>-->
