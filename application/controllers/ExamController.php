@@ -60,7 +60,9 @@ class ExamController extends CI_Controller
         $return['user']=$this->session->userdata();
         $return['exam']=$query;
         $return['questions']=$this->Exam_model->getoptions($queryy);
+        // debug($return,TRUE);
         $this->load->view('examview/takequiz',$return);
+        
       }
       else
       {
@@ -79,8 +81,7 @@ class ExamController extends CI_Controller
     $post = $this->input->post();
     if(isset($post) && $post != null)
     {
-        debug($post,TRUE);
-        $this->Exam_model->answerprocess($post);
+      $this->Exam_model->processanswer($post);
     }
    $this->load->view('dashboard');  
   }

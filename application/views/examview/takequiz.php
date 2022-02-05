@@ -12,7 +12,7 @@
             <img src="<?php echo base_url();?>assets/images/logo.png" class="logo">
             <ul>
                 <li><a href="<?php echo site_url('Welcome/Home'); ?>">Home</a></li>
-                <li><a href="<?php echo site_url('Welcome/Join');?>">Join Quiz</a></li>
+                <li><a href="<?php echo site_url('ExamController/Join');?>">Join Quiz</a></li>
                 <li><a href="#">Quiz List</a></li>
                 <li><a href="<?php echo site_url('Welcome/Study'); ?>">Study Tips</a></li>
                 <li><a href="<?php echo site_url('Welcome/Profile'); ?>">Profile</a></li>
@@ -31,6 +31,9 @@
             <h1><?=$exam['exam_title']?></h1>
             <form method="POST" action="<?php echo base_url('ExamController/answerquiz/'.$exam['exam_id']);?>">
             <input type="hidden" name="exam_id" value="<?=$exam['exam_id']?>">
+            <input type="hidden" name="Deduction_Points" value="<?=$exam['marks_if_wrong']?>">
+            <input type="hidden" name="Correct_Points" value="<?=$exam['marks_if_right']?>">
+            <input type="hidden" name="Total_Points" value="<?=$exam['score']=0?>">
             <input type="hidden" name="username" value="<?=$user['username']?>">
             <?php 
             $index = 1;
