@@ -27,7 +27,7 @@ class Update extends CI_Controller
 			$user_data=$this->User_model->getData($session_id);
 			if($old_pass != $new_pass && $new_pass == $confirm_pass)
 			{
-				$this->User_model->profile_update($session_id,sha1($new_pass),$lastName,$firstName,$username,$birthdate);					
+				$this->User_model->profile_update($session_id,sha1($new_pass),$lastName,$firstName,$username,$birthdate);   			
 			}
 			else{ 
 				echo "Invalid";

@@ -43,12 +43,10 @@ class ExamController extends CI_Controller
     $post = $this->input->post();
     if(isset($post) && $post != null)
     {
-        $this->Question_model->processquestions($post);
+      $this->Question_model->processquestions($post);
     }
-   $this->load->view('dashboard');  
+    $this->load->view('dashboard'); 
   }
-//answer quiz
-  
 
   public function enterquizcode()
   {
@@ -62,15 +60,12 @@ class ExamController extends CI_Controller
         $return['questions']=$this->Exam_model->getoptions($queryy);
         // debug($return,TRUE);
         $this->load->view('examview/takequiz',$return);
-        
       }
       else
       {
-        $this->load->view('examview/joinquiz');	
+        $this->load->view('examview/joinquiz');    
       }
   }
-
-  
   public function Join()
   {
     $this->load->view('examview/joinquiz');	
@@ -85,4 +80,5 @@ class ExamController extends CI_Controller
     }
    $this->load->view('dashboard');  
   }
+
 }

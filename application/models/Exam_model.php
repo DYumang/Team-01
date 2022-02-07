@@ -20,17 +20,16 @@
             $result = $query->row_array();
             return $result;
         }
-
-        public function gettotalquestion($exam_id)
-        {
-            $this->db->select('total_question');
-            $this->db->where('exam_id',$exam_id);
-            $query=$this->db->get('exam_details_table');
+	
+	public function gettotalquestion($exam_id)
+	{
+	        $this->db->select('total_question');
+	        $this->db->where('exam_id',$exam_id);
+	        $query=$this->db->get('exam_details_table');
             $result = $query->result_array();
             return $result;
-        }
-
-        public function geteid($exam_id)
+    }
+    public function geteid($exam_id)
         {
             $this->db->select('exam_id');
             $query=$this->db->get('exam_details_table');
