@@ -11,7 +11,7 @@
         }
         public function checkcode($attempt_code)
         {
-            $this->db->select('exam_id,total_question,exam_title,marks_if_right,marks_if_wrong');
+            $this->db->select('exam_code,id,exam_id,total_question,exam_title,marks_if_right,marks_if_wrong');
             $this->db->from('exam_details_table');
             // $this->db->from('questions_details_table');
             // $this->db->from('options_details_table');
@@ -87,13 +87,34 @@
             $score=0;
             for($i=0;$i<count($data['questions']);$i++)
             {
-                $this->db->select('question_id,answer');
-                $this->db->from('questions_details_table');
-                $this->db->where('answer',$data['questions'][$i]['useranswer']);
-                $query=$this->db->get();
-                $result[$i]['answer']=$query->result_array();
+                $query=$this->db->get_where('questions_details_table',array('exam_id' => $data['exam_id']));
+                $query=$query->result_array();
+                // echo "<pre>";
+                // var_dump($data);
+                // exit;
+                if($query[$i]['answer'] == $data['questions'][$i]['useranswer']){
+                    $score+=$data['Correct_Points'];
+                    // echo"<pre>";
+                    // echo $score;
+                    // echo "tama";
+                }
+                else{
+                    $score-=$data['Deduction_Points'];
+                    // echo"<pre>";
+                    // echo $score;
+                    // echo "mali";
+                }
             }
-            debug($result,TRUE);
+            $this->db->set('exam_title',$data['Title']);
+            $this->db->set('exam_code',$data['quizcode']);
+            $this->db->set('total_question',$data['Total_Question']);
+            $this->db->set('marks_if_right',$data['Correct_Points']);
+            $this->db->set('marks_if_wrong',$data['Deduction_Points']);
+            $this->db->set('exam_id',$data['exam_id']);
+            $this->db->set('user_id',$data['user_id']);
+            $this->db->set('score',$score);
+            $this->db->where('id',$data['id']);
+            $this->db->insert('exam_details_table');
        }
 
         // public function answerprocess($data=array())

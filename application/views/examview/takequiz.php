@@ -29,12 +29,17 @@
         <div class = "container">
         <p><?php echo validation_errors(); ?> </p>
             <h1><?=$exam['exam_title']?></h1>
-            <form method="POST" action="<?php echo base_url('ExamController/answerquiz/'.$exam['exam_id']);?>">
+            <form method="POST" action="<?php echo base_url('ExamController/answerquiz/'.$exam['id']);?>">
             <input type="hidden" name="exam_id" value="<?=$exam['exam_id']?>">
+            <input type="hidden" name="Title" value="<?=$exam['exam_title']?>">
+            <input type="hidden" name="quizcode" value="<?=$exam['exam_code']?>">
+            <input type="hidden" name="Total_Question" value="<?=$exam['total_question']?>">
             <input type="hidden" name="Deduction_Points" value="<?=$exam['marks_if_wrong']?>">
             <input type="hidden" name="Correct_Points" value="<?=$exam['marks_if_right']?>">
+            <input type="hidden" name="id" value="<?=$exam['id']?>">
             <input type="hidden" name="Total_Points" value="<?=$exam['score']=0?>">
             <input type="hidden" name="username" value="<?=$user['username']?>">
+            <input type="hidden" name="user_id" value="<?=$user['id']?>">
             <?php 
             $index = 1;
             for($i=0;$i<count($questions);$i++){ ?>
