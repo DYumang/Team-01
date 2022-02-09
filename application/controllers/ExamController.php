@@ -76,9 +76,18 @@ class ExamController extends CI_Controller
     $post = $this->input->post();
     if(isset($post) && $post != null)
     {
-      $this->Exam_model->processanswer($post);
+      $data=$this->Exam_model->processanswer($post);
+      // $scoring=array(
+      //   $score=$data['Total_Points'],
+      //   $questions=$data['Total_Question']        
+      // );
+      // debug($data,TRUE);
+      
     }
-   $this->load->view('dashboard');  
+    $result=$this->Exam_model->viewscore($data);
+    // exit;
+  //  $this->load->view('dashboard'); 
+  $this->load->view('score',$result); 
   }
 
 }
