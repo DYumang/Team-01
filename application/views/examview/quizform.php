@@ -36,7 +36,6 @@
             <?php 
             
             $opt = 4;
-            
             for($i=1;$i<=$total_question;$i++){ ?>
                 <br><br>
                     <label>Enter Question <?=$i?></label><br>
