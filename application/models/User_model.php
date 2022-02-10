@@ -13,12 +13,12 @@ class User_model extends CI_Model
     {
         $this->db->insert('tbl_name',$data);
     }
-    public function loginmodel($username,$password)
+    public function loginmodel($email, $password)
     {
-        $password = $password;
-        $this->db->select('id,username');
-        $this->db->where('username',$username);
-        $this->db->where('password',$password);
+        $this->db->select('*');
+        $this->db->where('email',$email);
+        $this->db->where('password',sha1($password));
+        $this->db->where('status','1');
         $query = $this->db->get("tbl_name");
         
         if($query->num_rows()==1)

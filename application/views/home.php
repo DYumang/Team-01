@@ -10,11 +10,11 @@
     <title>QuizHub | Sign Up</title>
   </head>
   <body>
-    <img src="<?php echo base_url();?>assets/images/logo.png" class="logosignup" width="100px" height="100px" >
+    <img src="<?php echo base_url();?>assets/images/logo.png" class="logosignup" width="z100px" height="100px" >
     <div class="container">
       <div class="wrapper">
         <div class="title"><span>SignUp Form</span></div>
-        <form method="post" action="<?php echo site_url('Welcome/RegisterNow')?>">
+        <form method="post" autocomplete="off" action="<?php echo site_url('Welcome/RegisterNow')?>">
           <div class="row">
             <i class="fas fa-user"></i>
             <input type="text" placeholder="Lastname" name="lastName" required>
@@ -30,6 +30,10 @@
           <div class="row">
             <i class="fas fa-user"></i>
             <input type="date" placeholder="Birthdate" name="birthdate" required>
+          </div>
+          <div class="row">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Email" name="email" required>
           </div>
           <div class="row">
             <i class="fas fa-lock"></i>

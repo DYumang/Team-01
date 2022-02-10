@@ -31,8 +31,8 @@
                     </span> <br>
                     its okay, we've all been there! 
                 </h2>
-                <a align="center" href="<?php echo site_url('Welcome/addDetails');?>">Create a Quiz</a>
-                <a align="center" href="<?php echo site_url('Welcome/Join'); ?>">Join a Quiz</a>     
+                <a align="center" href="<?php echo site_url('ExamController/addDetails');?>">Create a Quiz</a>
+                <a align="center" href="<?php echo site_url('ExamController/Join'); ?>">Join a Quiz</a>     
                 <p align="center">
                     Scroll down to get tips :> 
                 </p>

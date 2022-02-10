@@ -17,7 +17,7 @@
          <form method="post" action="<?php echo site_url('welcome/loginnow')?>">    
           <div class="row">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Username" name="username" required>
+            <input type="email" placeholder="Email" name="email" required>
           </div>
           <div class="row">
             <i class="fas fa-lock"></i>

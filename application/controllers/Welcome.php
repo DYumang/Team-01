@@ -44,10 +44,52 @@ class Welcome extends CI_Controller
 			$this->Crud_model->updateData();
 			$this->load->view('userProfile');			
 		}
+		public function email_verification()
+		{
+			$this->load->view('email_verification');
+		}
 		public function RegisterNow()
 		{
-			$this->Crud_model->createData();
-			$this->load->view('login');			
+
+			$verification_key = md5(rand());
+			$this->Crud_model->createData($verification_key);
+
+
+			$subject = "Email Verification";
+			$data = array(
+				'verification_key' => $verification_key
+			);
+			$message = $this->load->view('email_verification',$data,true);
+
+				$this->email->initialize($this->config->item('email'));
+				$this->email->set_newline("\r\n");
+				$this->email->from('softwareeng.team.01@gmail.com','QuizHub Admin');
+				$this->email->to($this->input->post('email'));
+				$this->email->subject($subject);
+				$this->email->message($message);
+
+			
+			if($this->email->send())
+			{
+				$this->load->view('login');	
+			}else{
+				redirect(base_url('welcome/failedemail'));
+			}
+					
+		}
+		public function verify_email(){
+			if($this->uri->segment(3)){
+				  $verification_key = $this->uri->segment(3); 
+	
+				if($this->Crud_model->verify_email($verification_key))
+			   {
+					$this->load->view('login');	
+			   }
+			   else
+			   {
+				redirect(base_url('welcome/failedemail'));
+			   }
+			}
 		}
 		public function Login()
 		{
@@ -79,9 +121,9 @@ class Welcome extends CI_Controller
 		public function loginnow()
 		{
 			$this->load->library('form_validation');
-			$this->form_validation->set_rules('username','Username', 'required');
+			$this->form_validation->set_rules('email','Email', 'required');
 			$this->form_validation->set_rules('password','Password', 'required');
-			$username = $this->input->post('username');
+			$email = $this->input->post('email');
 			$password = $this->input->post('password');	
 			if($this->form_validation->run()== FALSE)
 			{
@@ -89,12 +131,13 @@ class Welcome extends CI_Controller
 			}
 			else
 			{	
-				$status = $this->user_model->loginmodel ($username, sha1($password));
+				$status = $this->user_model->loginmodel ($email, $password);
 				if($status!=false)
 				{
 					$session_data = array(
-						'username' => $username,
+						'email' => $email,
 						'id' => $status->id,
+						'username' => $status->username,
 					);
 					$this->session->set_userdata($session_data);
 					$session =$this->session->userdata();

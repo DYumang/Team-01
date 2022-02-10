@@ -60,7 +60,7 @@
                 </div>
                 <input type="radio" name="name" >
                 <div class="content">
-                    <div class="title">
+                    <div class="usertitle" align="center">
                         User Profile Update
                     </div>
                     <div class="form" align="center">
