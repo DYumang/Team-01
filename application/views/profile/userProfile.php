@@ -25,6 +25,7 @@
                     </ul>
             </nav> 
             <div class="tabs">
+            <!-- TAB1 -->
                 <input type="radio" name="name" checked>
                 <div class="content">
                         <div class="title">
@@ -58,13 +59,14 @@
                             </h3>
                         </div>
                 </div>
+            <!-- TAB2 -->
                 <input type="radio" name="name" >
                 <div class="content">
-                    <div class="usertitle" align="center">
-                        User Profile Update
+                    <div class="title">
+                        User Info Update
                     </div>
                     <div class="form" align="center">
-                        <form method="post" action="<?php echo site_url('Update')?>">
+                        <form method="post" action="<?php echo site_url('Welcome/UpdateInfo')?>">
                             <div class="row">
                                 <i class="fas fa-user"></i>
                                 <input type="text" placeholder="Lastname" name="lastName" ><br /><br />
@@ -80,35 +82,38 @@
                             <div class="row">
                                 <i class="fas fa-user"></i>
                                 <input type="date" placeholder="Birthdate" name="birthdate" ><br /><br />
-                            </div>                            
-                            <div class="row">
-                                <i class="fas fa-lock"></i>
-                                <input type="password" placeholder="Old Pass" name="old_pass" id="name" required><br /><br />
-                            </div>
-                            <div class="row">
-                                <i class="fas fa-lock"></i>
-                                <input type="password" placeholder="New Password" name="new_pass" id="password" required><br /><br />
-                            </div>
-                            <div class="row">
-                                <i class="fas fa-lock"></i>
-                                <input type="password" placeholder="Confirm Password" name="confirm_pass" id="password" required><br /><br />
                                 <input class="button-52" role="button" type="submit" value="update" name="profile_update"/>
                             </div>                    
                         </form> 
                     </div>
                 </div>
-                <input type="radio" name="name" >
-                    <div class="content">
-                        <div class="title">
-                            Quiz List (interacted/answered)
-                        </div>
-                    </div>
+            <!-- TAB3 -->
                 <input type="radio" name="name" >
                 <div class="content">
                     <div class="title">
-                        Quiz List (created)
+                        User Password Update
                     </div>
-                </div>      
+                    <?php echo @$error; ?>
+                    <div class="form" align="center">
+                        <form method="post" action='<?php echo site_url('Update')?>'>
+                            <div class="row">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" name="old_pass" id="name" placeholder="Old Pass"/><br /><br />
+                            </div>
+                            <div class="row">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" name="new_pass" id="password" placeholder="New Password"/><br/><br />
+                            </div>
+                            <div class="row">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" name="confirm_pass" id="password" placeholder="Confirm Password"/><br/><br />
+                                <input class="button-52" type="submit" value="update" name="change_pass"/><br />
+                                <!-- <input  role="button" type="submit" value="update" name="change_pass"/> -->
+                            </div>                    
+                        </form> 
+                    </div>
+                </div>               
+            </div>
         </div>
     </body>
 </html>             

@@ -53,10 +53,11 @@ nav ul li a:hover{
 input[type="radio"] {
   position: absolute;
   left: 0;
+  top: 90;
   width: 24px;
-  height: 25%;
+  height: 30%;
   outline: 12px solid;
-  outline-offset: -12px;
+  outline-offset: -25px;
   margin: 0;
   padding: 0;
   z-index: 1;
@@ -65,19 +66,15 @@ input[type="radio"] {
 }
 input[type="radio"]:nth-of-type(1) {
   outline-color: #FCFFA6;
-  top: 0%;
+  top: 10%;
 }
 input[type="radio"]:nth-of-type(2) {
   outline-color: #C1FFD7;
-  top: 25%;
+  top: 35%;
 }
 input[type="radio"]:nth-of-type(3) {
   outline-color: #F4BEEE;
-  top: 50%;
-}
-input[type="radio"]:nth-of-type(4) {
-  outline-color: #CAB8FF;
-  top: 75%;
+  top: 60%;
 }
 input[type="radio"]:checked + .content {
   transform: translateX(0%);
@@ -103,9 +100,6 @@ input[type="radio"]:checked + .content {
 }
 .content:nth-of-type(3) {
   background-color: #F4BEEE;
-}
-.content:nth-of-type(4) {
-  background-color: #CAB8FF;
 }
 .title {
   margin-left: 10%;
