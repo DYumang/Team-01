@@ -82,6 +82,9 @@ body{
 .center h1{
     text-align: center;
     padding: 20px 0;
+    font-family: 'Rowdies', cursive;
+    text-transform: uppercase;
+    text-shadow: 2px 1px#E5E4E2;
     border-bottom: 1px solid silver;
 }
 .center form{
@@ -110,6 +113,9 @@ input[type="submit"]
     height: 40px;
     transform: translate(115%, 14%);
     border: 1px solid;
+    font-family: 'Rowdies', cursive;
+    text-transform: uppercase;
+    text-shadow: 2px 1px black;
     background: purple;
     border-radius: 25px;
     font-size: 15px;
@@ -118,7 +124,10 @@ input[type="submit"]
     cursor: pointer;
     outline: none;
   }
-
+  input[type="submit"]:hover{
+    font-family: 'Rowdies', cursive;
+    background: 	#6082B6;
+  }
 .image
 {
     width: 200px;

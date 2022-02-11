@@ -76,9 +76,9 @@ input[type="submit"]{
 
   h1{
       font-size: 40px;
-      font-weight: bold;
-      font-family: sans-serif;
+      font-family: 'Rowdies', cursive;
       text-align: center;
+      text-transform: uppercase;
   }
 
   .radio{
@@ -88,8 +88,8 @@ input[type="submit"]{
 
  .title{
     padding: 0;
+    font-family: 'Rowdies', cursive;
     font-size: 28px;
-    font-weight: bold;
     background-color: #fdd1d8;
     border-radius: 10%;
   }

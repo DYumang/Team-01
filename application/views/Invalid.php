@@ -18,7 +18,6 @@
                     <ul>
                         <li><a href="<?php echo site_url('welcome/Home'); ?>">Home</a></li>
                         <li><a href="<?php echo site_url('ExamController/Join'); ?>">Join Quiz</a></li>
-                        <li><a href="#">Quiz List</a></li>
                         <li><a href="<?php echo site_url('welcome/Study'); ?>">Study Tips</a></li>
                         <li><a href = "<?php echo site_url('welcome/Profile'); ?>">Profile</a></li>
                         <li><a href="<?php echo base_url('welcome/LogoutController');?>">LOGOUT</a></li>

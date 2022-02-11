@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee+Shade&family=Luckiest+Guy&family=Passion+One:wght@700&family=Rowdies&family=Teko:wght@500&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="<?php echo base_url('assets/css/aboutUs.css');?>">
+	<title><title>QuizHub | AboutUs</title></title>
 </head>	
 <body>
 
