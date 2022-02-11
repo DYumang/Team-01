@@ -4,19 +4,30 @@
     font-family: sans-serif;
 }
 
-.hero{
-    position: relative;
+.custom-shape-divider-bottom-1644490778 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    height: 100vh;
-    background: #eff4fd;
-    position: relative;
+    overflow: hidden;
+    line-height: 0;
 }
+
+.custom-shape-divider-bottom-1644490778 svg {
+    position: relative;
+    display: block;
+    width: calc(150% + 1.5px);
+    height: 700px;
+}
+
+.custom-shape-divider-bottom-1644490778 .shape-fill {
+    fill: #eff4fd;
+}
+
 .main{
     position: relative;
-    width: 100%;
-    height: 100vh;
-    background: #eff4fd;
-    position: relative;
+    min-height: 100vh;
+    background: #fdd1d8;
 }
 
 nav{
@@ -29,7 +40,7 @@ nav{
 }
 
 .logo{
-    width: 100px;
+    width: 150px;
     cursor: pointer;
 }
 
@@ -71,6 +82,9 @@ body{
 .center h1{
     text-align: center;
     padding: 20px 0;
+    font-family: 'Rowdies', cursive;
+    text-transform: uppercase;
+    text-shadow: 2px 1px#E5E4E2;
     border-bottom: 1px solid silver;
 }
 .center form{
@@ -93,11 +107,15 @@ form .txt_field{
     background: white;
     outline: none;
 }
-input[type="submit"]{
+input[type="submit"]
+{
     width: 30%;
     height: 40px;
     transform: translate(115%, 14%);
     border: 1px solid;
+    font-family: 'Rowdies', cursive;
+    text-transform: uppercase;
+    text-shadow: 2px 1px black;
     background: purple;
     border-radius: 25px;
     font-size: 15px;
@@ -106,3 +124,12 @@ input[type="submit"]{
     cursor: pointer;
     outline: none;
   }
+  input[type="submit"]:hover{
+    font-family: 'Rowdies', cursive;
+    background: 	#6082B6;
+  }
+.image
+{
+    width: 200px;
+    transform: translate(510%, 50%);
+}

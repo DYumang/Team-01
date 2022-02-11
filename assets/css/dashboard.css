@@ -22,7 +22,7 @@ nav{
 }
 
 .logo{
-    width: 100px;
+    width: 150px;
     cursor: pointer;
 }
 
@@ -35,7 +35,7 @@ nav ul li {
 nav ul li a{
     text-decoration: none;
     color: #000;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
 }
 
@@ -56,7 +56,7 @@ nav ul li a:hover{
 }
 
 span{
-    color:  #fdff81;
+    color: rgb(226, 122, 140);
     
 }
 
@@ -66,8 +66,8 @@ span{
     line-height: 22px;
 }
 
-.detel a{
-    background: #212121;
+.detel .button a{
+    background: #E37383 ;
     padding: 10px 18px;
     text-decoration: none;
     font-weight: bold;
@@ -75,6 +75,10 @@ span{
     display: inline-block;
     margin: 30px 0;
     border-radius: 5px;
+    font-size: 30px;
+}
+.detel .button a:hover{
+    background: #F33A6A;
 }
 
 .images{

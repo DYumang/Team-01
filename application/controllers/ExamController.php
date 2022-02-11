@@ -43,12 +43,10 @@ class ExamController extends CI_Controller
     $post = $this->input->post();
     if(isset($post) && $post != null)
     {
-        $this->Question_model->processquestions($post);
+      $this->Question_model->processquestions($post);
     }
-   $this->load->view('dashboard');  
+    $this->load->view('dashboard'); 
   }
-//answer quiz
-  
 
   public function enterquizcode()
   {
@@ -60,15 +58,14 @@ class ExamController extends CI_Controller
         $return['user']=$this->session->userdata();
         $return['exam']=$query;
         $return['questions']=$this->Exam_model->getoptions($queryy);
+        // debug($return,TRUE);
         $this->load->view('examview/takequiz',$return);
       }
       else
       {
-        $this->load->view('examview/joinquiz');	
+        $this->load->view('examview/joinquiz');    
       }
   }
-
-  
   public function Join()
   {
     $this->load->view('examview/joinquiz');	
@@ -79,9 +76,19 @@ class ExamController extends CI_Controller
     $post = $this->input->post();
     if(isset($post) && $post != null)
     {
-        debug($post,TRUE);
-        $this->Exam_model->answerprocess($post);
+      $data=$this->Exam_model->processanswer($post);
+      // $scoring=array(
+      //   $score=$data['Total_Points'],
+      //   $questions=$data['Total_Question']        
+      // );
+      // debug($data,TRUE);
+      
     }
-   $this->load->view('dashboard');  
+    $result['data']=$this->Exam_model->viewscore($data);
+    // debug($result,TRUE);
+    // exit;
+  //  $this->load->view('dashboard'); 
+  $this->load->view('score',$result); 
   }
+
 }

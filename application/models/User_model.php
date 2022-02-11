@@ -13,12 +13,12 @@ class User_model extends CI_Model
     {
         $this->db->insert('tbl_name',$data);
     }
-    public function loginmodel($username,$password)
+    public function loginmodel($email, $password)
     {
-        $password = $password;
-        $this->db->select('id,username');
-        $this->db->where('username',$username);
-        $this->db->where('password',$password);
+        $this->db->select('*');
+        $this->db->where('email',$email);
+        $this->db->where('password',sha1($password));
+        $this->db->where('status','1');
         $query = $this->db->get("tbl_name");
         
         if($query->num_rows()==1)
@@ -30,18 +30,14 @@ class User_model extends CI_Model
             return false;
         }
     }
-    public function getData($session_id)
+    function getData($session_id)
 	{
-		$fetch_pass=$this->db->query("select password from tbl_name where id='$session_id'");
-		$pass=$fetch_pass->row();
-		return $pass;
+		$fetch_pass=$this->db->query("select * from tbl_name where id='$session_id'");
+		$res=$fetch_pass->row();
+		return $res;
 	}
-   public function profile_update($session_id,$new_pass,$lastName,$firstName,$username,$birthdate)
-    {
-        $update_pass=$this->db->query("UPDATE tbl_name set password='$new_pass'  where id='$session_id'");
-        $que_pass=$this->db->query("select * from tbl_name where id='$session_id'"); 
-		$row_pass=$que_pass->row();   
-
+   public function profile_update($session_id,$lastName,$firstName,$username,$birthdate)
+    {   
         $update_lname=$this->db->query("UPDATE tbl_name set lastName='$lastName'  where id='$session_id'");
 		$que_lname=$this->db->query("select * from tbl_name where id='$session_id'"); 
 		$row_lname=$que_lname->row(); 
@@ -58,6 +54,14 @@ class User_model extends CI_Model
 		$que_bday=$this->db->query("select * from tbl_name where id='$session_id'"); 
 		$row_bday=$que_bday->row();         
     }
+
+    function change_pass($session_id,$new_pass)
+	{
+		$update_pass=$this->db->query("UPDATE tbl_name set password='$new_pass'  where id='$session_id'");
+		$que=$this->db->query("select * from tbl_name where id='$session_id'"); 
+		$row=$que->row(); 
+	}
+
     public function profile($id)
     {  
         $query=$this->db->get_where('tbl_name',array('id'=>$id));

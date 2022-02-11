@@ -22,7 +22,7 @@ nav{
 }
 
 .logo{
-    width: 100px;
+    width: 200px;
     cursor: pointer;
 }
 
@@ -35,12 +35,12 @@ nav ul li {
 nav ul li a{
     text-decoration: none;
     color: #000;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
 }
 
 nav ul li a:hover{
-    color: rgb(255, 136, 219);
+    color: #FF69B4;
 }
 
 .detel{
@@ -56,8 +56,9 @@ nav ul li a:hover{
     margin-bottom: 20px;
 }
 
+
 span{
-    color:  #fdff81;
+    color:  rgb(226, 122, 140);
     
 }
 
@@ -79,6 +80,26 @@ span{
     margin: 30px 0;
     border-radius: 5px;
 }
+
+.detel .button a{
+    background-color: #E37383;
+	font-family: 'Rowdies', cursive;
+	text-decoration: none;
+	color: #fff;
+	font-size: 25px;
+	letter-spacing: 1.5px;
+}
+
+.detel .button a:hover{
+	background-color: 	#F33A6A	;
+	font-family: 'Rowdies', cursive;
+    text-decoration: none;
+	font-size: 25px;
+    letter-spacing: 1.5px;
+	color:#fff;
+}
+
+
 
 .images{
     width: 45%;

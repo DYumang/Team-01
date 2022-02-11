@@ -6,7 +6,7 @@
   font-family: 'Poppins',sans-serif;
 }
 body{
-  background: #F4BEEE;
+  background: #F8C8DC;
   overflow: hidden;
 }
 ::selection{
@@ -14,8 +14,8 @@ body{
 }
 
 .logosignup{
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   margin: 20px 0 0 109px;
 }
 
@@ -32,9 +32,10 @@ body{
 }
 .wrapper .title{
   height: 90px;
-  background: #57f1e7;
+  background: 	#4682B4;
   border-radius: 5px 5px 0 0;
   color: #fff;
+  text-shadow: 2px 1px #36454F;
   font-size: 30px;
   font-weight: 600;
   display: flex;
@@ -70,10 +71,10 @@ form .row input::placeholder{
   position: absolute;
   width: 47px;
   height: 100%;
-  color: #fff;
+  color: 			#fff	;
   font-size: 18px;
-  background: #FDFF8F;
-  border: 1px solid #FDFF8F;
+  background: 	#F4C430	;
+  border: 1px solid #848884	;
   border-radius: 5px 0 0 5px;
   display: flex;
   align-items: center;
@@ -95,12 +96,12 @@ form .row input::placeholder{
   font-size: 20px;
   font-weight: 500;
   padding-left: 0px;
-  background:#F4BEEE;
+  background:#E37383	;
   border: 1px solid #eeb1cd;
   cursor: pointer;
 }
 form .button input:hover{
-  background: #D47AE8;
+  background: #F33A6A;
 }
 .wrapper form .signup-link{
   text-align: center;

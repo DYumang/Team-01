@@ -11,7 +11,7 @@
         }
         public function checkcode($attempt_code)
         {
-            $this->db->select('exam_id,total_question,exam_title');
+            $this->db->select('exam_code,id,exam_id,total_question,exam_title,marks_if_right,marks_if_wrong');
             $this->db->from('exam_details_table');
             // $this->db->from('questions_details_table');
             // $this->db->from('options_details_table');
@@ -20,17 +20,16 @@
             $result = $query->row_array();
             return $result;
         }
-
-        public function gettotalquestion($exam_id)
-        {
-            $this->db->select('total_question');
-            $this->db->where('exam_id',$exam_id);
-            $query=$this->db->get('exam_details_table');
+	
+	public function gettotalquestion($exam_id)
+	{
+	        $this->db->select('total_question');
+	        $this->db->where('exam_id',$exam_id);
+	        $query=$this->db->get('exam_details_table');
             $result = $query->result_array();
             return $result;
-        }
-
-        public function geteid($exam_id)
+    }
+    public function geteid($exam_id)
         {
             $this->db->select('exam_id');
             $query=$this->db->get('exam_details_table');
@@ -83,20 +82,44 @@
             return $result;
         }
 
-       
-
-        public function answerprocess($data=array())
-        {
-            $exam_id=$data['exam_id'];
-            foreach($data['questions'] as $input=>$value){
-                $question_id=$this->getquestion($exam_id,$value['name']);
-                foreach($value['options'] as $key=>$opt){
-                    $optionid=$this->getoptions($question_id,$opt);
-                    if($key==$value['answer']){
-                        $this->getanswer($exam_id,$question_id,$optionid);
+       public function processanswer($data=array())
+       {
+            for($i=0;$i<count($data['questions']);$i++)
+            {
+                $query=$this->db->get_where('questions_details_table',array('exam_id' => $data['exam_id']));
+                $query=$query->result_array();
+                if($query[$i]['answer'] == $data['questions'][$i]['useranswer']){
+                    $data['Total_Points']+=$data['Correct_Points'];
+                }
+                else{
+                    if($data['Total_Points']>0){
+                    $data['Total_Points']-=$data['Deduction_Points'];
+                    }
+                    else{
+                        $data['Total_Points']=0;
                     }
                 }
             }
+            $this->db->set('exam_title',$data['Title']);
+            $this->db->set('exam_code',$data['quizcode']);
+            $this->db->set('total_question',$data['Total_Question']);
+            $this->db->set('marks_if_right',$data['Correct_Points']);
+            $this->db->set('marks_if_wrong',$data['Deduction_Points']);
+            $this->db->set('exam_id',$data['exam_id']);
+            $this->db->set('user_id',$data['user_id']);
+            $this->db->set('score',$data['Total_Points']);
+            $this->db->where('id',$data['id']);
+            $this->db->insert('exam_details_table');
+            return $data;
+        }
+        public function viewscore($data=array()){
+            $this->db->select('id,exam_id,total_question,score,exam_title,marks_if_right');
+            $this->db->where('id',$data['id']+1);
+            $this->db->select('sum(`total_question`*`marks_if_right`)');
+            $query=$this->db->get('exam_details_table');
+            $result=$query->row_array();
+            
+            return $result;
         }
     }
 ?>
