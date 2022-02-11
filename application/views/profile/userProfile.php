@@ -9,6 +9,10 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee+Shade&family=Luckiest+Guy&family=Passion+One:wght@700&family=Rowdies&family=Teko:wght@500&display=swap" rel="stylesheet">
+        <title>QuizHub | UserProfile</title>
     </head>
 
     <body>
@@ -18,9 +22,7 @@
                     <ul>
                         <li><a href="<?php echo site_url('welcome/Home'); ?>">Home</a></li>
                         <li><a href="<?php echo site_url('ExamController/Join'); ?>">Join Quiz</a></li>
-                        <li><a href="#">Quiz List</a></li>
                         <li><a href="<?php echo site_url('welcome/Study'); ?>">Study Tips</a></li>
-                        <li><a href = "<?php echo site_url('welcome/Profile'); ?>">Profile</a></li>
                         <li><a href="<?php echo base_url('welcome/LogoutController');?>">LOGOUT</a></li>
                     </ul>
             </nav> 
@@ -54,7 +56,6 @@
                                     echo "Born on ";
                                     echo ucfirst($profile->birthdate);
                                     echo "<br>";
-                                    echo ":D ";
                                 ?>
                             </h3>
                         </div>
@@ -80,7 +81,7 @@
                                 <input type="text" placeholder="Username" name="username" ><br /><br />
                             </div>
                             <div class="row">
-                                <i class="fas fa-user"></i>
+                                <i class="fas fa-birthday-cake"></i>
                                 <input type="date" placeholder="Birthdate" name="birthdate" ><br /><br />
                                 <input class="button-52" role="button" type="submit" value="update" name="profile_update"/>
                             </div>                    

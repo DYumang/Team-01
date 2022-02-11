@@ -4,8 +4,12 @@
 	<title>About</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/aboutUs.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee+Shade&family=Luckiest+Guy&family=Passion+One:wght@700&family=Rowdies&family=Teko:wght@500&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="<?php echo base_url('assets/css/aboutUs.css');?>">
+	<title><title>QuizHub | AboutUs</title></title>
 </head>	
 <body>
 
@@ -18,7 +22,7 @@
                 
                     </div>
 				<div class="content">
-					<h3>hi, let us introduce quiz hub to you!</h3>
+					<h3>Hi, let us introduce quiz hub to you!</h3><br>
 					<p>Quiz Hub is a website where you may take quizzes that are both entertaining and educational.
                         With this online assessment tool, teachers and students may create and use one another's
 						quizzes. 
@@ -42,14 +46,16 @@
 					<a href="<?php echo site_url('welcome/index')?>">Start Now</a>
 					</div>
 				</div>
-				<div class="social">
-					<a href=""><i class="fab fa-facebook-f"></i></a>
-					<a href=""><i class="fab fa-twitter"></i></a>
-					<a href=""><i class="fab fa-instagram"></i></a>
-				</div>
 			</div>
 			<div class="image-section">
-				<img src="<?php echo base_url();?>assets/images/logo.png" class="girl">
+				<img src="<?php echo base_url('assets/images/logo.png');?>" class="girl">
+				
+				<div class="social">
+				    <p>Follow us on </p><br><br>
+				    <a href="https://www.facebook.com/wearequizhub/"><i class="fa-brands fa-facebook"></i></i></a>
+					<a href="https://twitter.com/quiz_hub"><i class="fa-brands fa-twitter-square"></i></a>
+					<a href="https://www.instagram.com/wearequizhub/"><i class="fa-brands fa-instagram-square"></i></a>
+				</div>
 			</div>
 		</div>
 </body>

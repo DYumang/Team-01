@@ -7,7 +7,7 @@
 }
 
 body {
-	background-color: #ddd;
+	background-color: #FFF5EE;
 }
 
 .container{
@@ -25,49 +25,73 @@ body {
 	width: 40%;
 }
 .image-section img{
-	width: 100%;
+	width: 70%;
 	height: auto;
 }
-.content-section .title{
+.content-section .title h1{
 	text-transform: uppercase;
-	font-size: 28px;
+	font-size: 70px;
+	letter-spacing: 0.5px;
+	font-family: 'Passion One', cursive;
+	color: #FFD700;
+	text-shadow: 3px 3px black;
 }
 .content-section .content h3{
-	margin-top: 20px;
-	color:#5d5d5d;
-	font-size: 21px;
+	margin-top: 30px;
+	color:#28282B;
+	font-family: 'Bebas Neue', cursive;
+	font-size: 40px;
 }
 .content-section .content p{
 	margin-top: 10px;
-	font-family: sans-serif;
-	font-size: 18px;
+	font-family: 'Teko', sans-serif;
+	font-size: 25px;
 	line-height: 1.5;
+	text-align: justify;
 }
 .content-section .content .button{
 	margin-top: 30px;
+	margin-bottom: 30px;
 }
 .content-section .content .button a{
-	background-color: #3d3d3d;
+	background-color: #E37383;
 	padding:12px 40px;
+	font-family: 'Bebas Neue', cursive;
 	text-decoration: none;
-	color:#fff;
+	color:black;
 	font-size: 25px;
 	letter-spacing: 1.5px;
 }
 .content-section .content .button a:hover{
-	background-color: #a52a2a;
+	background-color: 	#F33A6A	;
+	font-family: 'Bebas Neue', cursive;
+	font-size: 25px;
 	color:#fff;
 }
-.content-section .social{
-	margin: 40px 40px;
+
+.image-section .social{
+	margin-left: 50px;
+	text-align: center;
 }
-.content-section .social i{
-	color:#a52a2a;
+.image-section .social p{
+	
+	text-align: center;
 	font-size: 30px;
-	padding:0px 10px;
+	font-family: 'Rowdies', cursive;
+	color: #FA8072;
+	text-shadow: 2px 1px black;
+
 }
-.content-section .social i:hover{
-	color:#3d3d3d;
+.image-section .social i{
+	color:#a52a2a;
+	font-size: 50px;
+	padding:0px 10px;
+	border-radius:3px;
+}
+
+
+.image-section .social i:hover{
+	color:#4682B4; 
 }
 @media screen and (max-width: 768px){
 	.container{
@@ -103,7 +127,7 @@ body {
 .content-section .content .button a{
 	padding:9px 30px;
 }
-.content-section .social{
+.image-section .social{
 	text-align: center;
 }
 
